@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+<title>参加費のお支払い｜夏前最後の逆転合格戦略会議（横浜）｜Eden</title>
+<style>
+  :root{--navy:#0e2540;--ink:#1d2733;--sub:#5e6b7b;--line:#e7eaf0;--paper:#f7f3ea;--gold:#c79a3c;--gold-2:#a9802a;--coral:#e0704a}
+  *{box-sizing:border-box}
+  body{margin:0;background:#e9e3d6;color:var(--ink);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:560px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 60px rgba(14,37,64,.15)}
+  .hero{background:var(--navy);color:#fff;text-align:center;padding:38px 24px 30px}
+  .datebadge{display:inline-block;font-size:12px;letter-spacing:.18em;font-weight:700;color:var(--navy);background:linear-gradient(90deg,#e6c97a,#c79a3c);padding:6px 16px;border-radius:999px;margin-bottom:16px}
+  .hero h1{font-size:23px;margin:0;font-weight:800;letter-spacing:.05em}
+  .hero .ev{font-size:13.5px;color:#cdd8e4;margin:10px 0 0}
+  .kind{display:inline-block;margin-top:14px;font-size:11.5px;letter-spacing:.2em;font-weight:700;color:var(--gold);border:1px solid rgba(199,154,60,.5);padding:4px 14px;border-radius:999px}
+  main{padding:30px 24px 36px}
+  .lead{font-size:14px;color:var(--sub);margin:0 0 22px;text-align:center}
+  label{display:block;font-size:13px;font-weight:800;color:var(--navy);margin-bottom:8px}
+  select{width:100%;padding:14px 12px;font-size:16px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);appearance:auto}
+  select:focus{outline:none;border-color:var(--gold)}
+  .btn{display:block;width:100%;margin-top:18px;padding:16px;font-size:16px;font-weight:800;letter-spacing:.06em;color:#fff;background:linear-gradient(135deg,#d6ab4e,#a9802a);border:none;border-radius:12px;cursor:pointer;box-shadow:0 8px 20px rgba(169,128,42,.3);font-family:inherit}
+  .btn:active{transform:translateY(1px)}
+  .btn[disabled]{background:#cfd6de;box-shadow:none;cursor:not-allowed}
+  .err{display:none;color:var(--coral);font-size:13px;font-weight:700;margin:10px 0 0;text-align:center}
+  .deadline{margin:26px 0 0;text-align:center;background:#fdf0ea;border:1px solid #f3d3c5;border-radius:10px;padding:12px;font-size:14px;font-weight:800;color:var(--coral)}
+  .notes{background:var(--paper);border-radius:12px;padding:16px 18px;margin-top:16px}
+  .notes ul{margin:0;padding-left:18px;font-size:12.5px;color:var(--sub)}
+  .notes li{margin:4px 0}
+  footer{background:var(--navy);color:#9fb0c2;text-align:center;padding:22px;font-size:11px}
+  footer .brand{letter-spacing:.4em;color:var(--gold);font-weight:700;font-size:12px;margin-bottom:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <span class="datebadge">2026.7.20（月・海の日）｜ 横浜</span>
+    <h1>参加費のお支払い</h1>
+    <p class="ev">夏前最後の逆転合格戦略会議<br>Vlag Yokohama Hall（横浜駅直結・42F）</p>
+    <span class="kind">VIP会員様用</span>
+  </header>
+  <main>
+    <p class="lead">ご参加の人数構成を選択し、<br>「お支払いへ進む」を押してください。</p>
+    <label for="plan">ご参加の人数構成</label>
+    <select id="plan">
+      <option value="">選択してください</option>
+      <option value="https://univa.cc/YUvAYE">保護者1名</option>
+      <option value="https://univa.cc/PQ78Nb">保護者1名＋お子さま1名</option>
+      <option value="https://univa.cc/JiF10Q">保護者1名＋お子さま2名</option>
+      <option value="https://univa.cc/n8dkob">保護者2名＋お子さま1名</option>
+      <option value="https://univa.cc/Bqa_GG">保護者2名＋お子さま2名</option>
+    </select>
+    <button class="btn" id="go" disabled>お支払いへ進む</button>
+    <p class="err" id="err">人数構成を選択してください</p>
+    <div class="deadline">お支払い期限：2026年7月7日（火）</div>
+    <div class="notes">
+      <ul>
+        <li>お支払いはクレジットカード決済です。</li>
+        <li>お申し込みフォームにご記入いただいた人数構成をお選びください。</li>
+        <li>金額はお支払いページでご確認いただけます。</li>
+        <li>ご不明な点は公式LINEまでご連絡ください。</li>
+      </ul>
+    </div>
+  </main>
+  <footer>
+    <div class="brand">EDEN</div>
+    夏前最後の逆転合格戦略会議（横浜）
+  </footer>
+</div>
+<script>
+  var sel=document.getElementById('plan'),btn=document.getElementById('go'),err=document.getElementById('err');
+  sel.addEventListener('change',function(){btn.disabled=!sel.value;err.style.display='none';});
+  btn.addEventListener('click',function(){
+    if(!sel.value){err.style.display='block';return;}
+    location.href=sel.value;
+  });
+</script>
+</body>
+</html>
