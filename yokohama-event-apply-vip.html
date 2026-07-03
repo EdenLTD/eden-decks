@@ -26,6 +26,7 @@
   .btn[disabled]{background:#cfd6de;box-shadow:none;cursor:not-allowed}
   .err{display:none;color:var(--coral);font-size:13px;font-weight:700;margin:10px 0 0;text-align:center}
   .deadline{margin:26px 0 0;text-align:center;background:#fdf0ea;border:1px solid #f3d3c5;border-radius:10px;padding:12px;font-size:14px;font-weight:800;color:var(--coral)}
+  .deadline .cd{font-size:19px;margin-top:4px;font-variant-numeric:tabular-nums;letter-spacing:.04em}
   .notes{background:var(--paper);border-radius:12px;padding:16px 18px;margin-top:16px}
   .notes ul{margin:0;padding-left:18px;font-size:12.5px;color:var(--sub)}
   .notes li{margin:4px 0}
@@ -54,7 +55,7 @@
     </select>
     <button class="btn" id="go" disabled>お支払いへ進む</button>
     <p class="err" id="err">人数構成を選択してください</p>
-    <div class="deadline">お支払い期限：2026年7月7日（火）</div>
+    <div class="deadline">お支払い期限：2026年7月7日（火）<div class="cd" id="cd"></div></div>
     <div class="notes">
       <ul>
         <li>お支払いはクレジットカード決済です。</li>
@@ -76,6 +77,16 @@
     if(!sel.value){err.style.display='block';return;}
     location.href=sel.value;
   });
+  var DL=new Date('2026-07-07T23:59:59+09:00').getTime();
+  var cd=document.getElementById('cd');
+  function tick(){
+    var d=DL-Date.now();
+    if(d<=0){cd.textContent='お支払い期限を過ぎました。お支払いがお済みでない方は公式LINEへご連絡ください。';cd.style.fontSize='12.5px';return;}
+    var s=Math.floor(d/1000);
+    cd.textContent='締め切りまで あと'+Math.floor(s/86400)+'日 '+('0'+Math.floor(s%86400/3600)).slice(-2)+'時間'+('0'+Math.floor(s%3600/60)).slice(-2)+'分'+('0'+s%60).slice(-2)+'秒';
+    setTimeout(tick,1000);
+  }
+  tick();
 </script>
 </body>
 </html>
