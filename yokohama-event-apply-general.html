@@ -52,7 +52,7 @@
     </select>
     <button class="btn" id="go" disabled>お支払いへ進む</button>
     <p class="err" id="err">人数構成を選択してください</p>
-    <div class="deadline">お支払い期限：2026年7月7日（火）<div class="cd" id="cd"></div></div>
+    <div class="deadline">お支払い期限：2026年7月8日（水）<div class="cd" id="cd"></div></div>
     <div class="notes">
       <ul>
         <li>お支払いはクレジットカード決済です。</li>
@@ -74,7 +74,7 @@
     if(!sel.value){err.style.display='block';return;}
     location.href=sel.value;
   });
-  var DL=new Date('2026-07-07T23:59:59+09:00').getTime();
+  var DL=new Date('2026-07-08T23:59:59+09:00').getTime();
   var cd=document.getElementById('cd');
   function tick(){
     var d=DL-Date.now();
