@@ -125,6 +125,11 @@
   .kids .k .t{font-weight:800; font-size:15px; margin-bottom:5px}
   .kids .k .d{font-size:13px; color:var(--sub); margin:0}
 
+  /* ---------- MATERIALS ---------- */
+  .materials{background:var(--paper)}
+  .materials .stack{max-width:700px; margin:0 auto; display:grid; gap:18px}
+  .materials .stack img{width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:12px; box-shadow:0 4px 14px rgba(14,37,64,.08); background:#fff}
+
   /* ---------- OUTLINE ---------- */
   .outline{background:#fff}
   .outline table{width:100%; max-width:640px; margin:0 auto; border-collapse:collapse; font-size:14.5px}
@@ -140,6 +145,12 @@
   footer .addr{font-size:12.5px; color:#9fb0c2; margin:0}
   footer .brand{margin-top:20px; font-size:12px; letter-spacing:.4em; color:var(--gold); font-weight:700}
 
+  @media print{
+    body{background:#fff}
+    .wrap{box-shadow:none}
+    .b,.row .card,.kids .k,.materials .stack img,.pe-photo{break-inside:avoid}
+    section{padding:32px 30px}
+  }
   @media(max-width:600px){
     section{padding:40px 20px}
     .hero .inner{padding:40px 20px 0}
@@ -257,6 +268,26 @@
       <div class="k"><div class="ic">📱</div><div class="t">弱点チェックテスト</div><p class="d">自分のスマホ／タブレットで、Kahootで全国の仲間と対戦。</p></div>
       <div class="k"><div class="ic">⚔️</div><div class="t">チームバトル</div><p class="d">テーブル（島）対抗で競い合う。</p></div>
       <div class="k"><div class="ic">🏅</div><div class="t">メダルづくり</div><p class="d">自分だけの夏休みプランを手で作る。</p></div>
+    </div>
+  </section>
+
+  <!-- MATERIALS -->
+  <section class="materials">
+    <p class="eyebrow sec-label">MATERIALS</p>
+    <h2>学習法資料</h2>
+    <div class="sub-line"></div>
+    <p class="lead-c">なおき先生の資料から、逆転合格のための学習法のポイントを掲載します。</p>
+    <div class="stack">
+      <img src="./shiryo/yokohama-shiryo-01.jpg" alt="どうやって「志望校に合格する学習習慣」が身につくのか" loading="lazy">
+      <img src="./shiryo/yokohama-shiryo-02.jpg" alt="成績上位者に共通する解答ルーティンの違い" loading="lazy">
+      <img src="./shiryo/yokohama-shiryo-03.jpg" alt="成績が伸び悩む子の特徴③ 理解が浅いと「作業」を省いてしまう" loading="lazy">
+      <img src="./shiryo/yokohama-shiryo-04.jpg" alt="成績が伸び悩む子の特徴② 見たことのある基礎問題しか解けない" loading="lazy">
+      <img src="./shiryo/yokohama-shiryo-05.jpg" alt="中堅・難関・最難関 各レベルの学校に必要な学習方法" loading="lazy">
+      <img src="./shiryo/yokohama-shiryo-06.jpg" alt="理解不足を「ミス」で片付けない" loading="lazy">
+      <img src="./shiryo/yokohama-shiryo-07.jpg" alt="中堅校合格ラインに必要な学習レベル" loading="lazy">
+      <img src="./shiryo/yokohama-shiryo-08.jpg" alt="中堅有名校は「原理理解」で十分合格できる" loading="lazy">
+      <img src="./shiryo/yokohama-shiryo-09.jpg" alt="学習改善に成功するご家庭の差" loading="lazy">
+      <img src="./shiryo/yokohama-shiryo-10.jpg" alt="基礎知識の習得機会は3回与えられている" loading="lazy">
     </div>
   </section>
 
