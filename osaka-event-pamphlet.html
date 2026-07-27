@@ -26,6 +26,11 @@
 
   /* ---------- HERO ---------- */
   .hero{position:relative; color:#fff; overflow:hidden; background:#0a1a2e}
+  .hero .photo{
+    position:absolute; inset:0;
+    background:url('./osaka-venue-hero.jpg') center / cover no-repeat;
+    transform:scale(1.04);
+  }
   .hero .veil{
     position:absolute; inset:0;
     background:
@@ -161,6 +166,7 @@
 
   <!-- HERO -->
   <header class="hero">
+    <div class="photo"></div>
     <div class="veil"></div>
     <div class="inner">
       <span class="datebadge">2026.8.2（日）｜ 大阪</span>
