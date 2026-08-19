@@ -51,11 +51,15 @@ blockquote{margin:10px 0;padding:10px 14px;background:var(--warnbg);border-left:
 .routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:8px 0 4px}
 .route{background:#fbfdff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .route .rt{font-weight:800;color:var(--accent);margin-bottom:4px}.route p{margin:0;font-size:14px}
+.nextnav{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--accent2);border:1px solid #cfe0f2;border-radius:14px;padding:16px 20px;margin:6px 0 18px;flex-wrap:wrap}
+.nextnav .nn-l{color:var(--muted);font-size:14px}
+.nextnav button{border:none;background:var(--accent);color:#fff;border-radius:999px;padding:12px 20px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 2px 6px rgba(11,111,182,.25)}
+.nextnav button:hover{filter:brightness(1.08)}
 .foot{color:var(--muted);font-size:12.5px;text-align:center;padding:20px}
 .mtoc{display:none}
 @media (max-width:900px){.wrap{grid-template-columns:1fr;padding:14px 12px 50px}aside{display:none}.mtoc{display:block;margin:0 0 14px}
  .mtoc details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px 14px}.mtoc summary{font-weight:700;cursor:pointer}
- .card,.intro{padding:16px 16px;border-radius:12px}.card h2{font-size:18px}.intro h1{font-size:21px}body{font-size:15px}.tabs{margin-left:0;width:100%}}
+ .card,.intro{padding:16px 16px;border-radius:12px}.card h2{font-size:18px}.intro h1{font-size:21px}body{font-size:15px}.tabs{margin-left:0;width:100%}.tabs button{flex:1;text-align:center}}
 @media print{.top,aside,.mtoc,.print{display:none}.page{display:block!important}.wrap{display:block;max-width:none;padding:0}.card,.intro{border:none;box-shadow:none;padding:6px 0;break-inside:avoid}body{font-size:12.5px;background:#fff}.sumgrid{grid-template-columns:1fr 1fr}table{min-width:0}.tbl{border:none}.card li strong,.card p strong{background:none;text-decoration:underline}}
 </style></head><body>
 <div class="top"><div class="in"><div class="brand">Eden 講師共有<small>指導メソッド（koki の授業の型） ＋ 過去問対策フロー（2026-08-19 版）</small></div>
@@ -647,6 +651,7 @@ blockquote{margin:10px 0;padding:10px 14px;background:var(--warnbg);border-left:
 <li>スケジュールは生徒と一緒に作って「これぐらいならできそう」と合意を取る。</li>
 <li>声かけは「〇〇をやりなさい」でなく「今日はどれから始める?」の問いかけ形。宿題は「先生との約束」にする。</li>
 </ul></section>
+<div class="nextnav"><div class="nn-l">ここまでが ① 指導メソッド</div><button data-go="flow">次へ：② 過去問対策フロー →</button></div>
 </div>
 <div class="page" id="p-flow">
 <div class="mtoc"><details><summary>目次（過去問対策フロー）</summary><ol class="toc "><li><a href="#f-1">0. 一枚で言うと</a></li><li><a href="#f-2">1. 過去問に入っていいか（教科ごとの判定）</a></li><li><a href="#f-3">2. 準備（買う・集める・管理する）</a></li><li><a href="#f-4">3. 学校の選び方と順番</a></li><li><a href="#f-5">4. 1年分の回し方（家と授業の分担）</a></li><li><a href="#f-6">5. 採点と目標</a></li><li><a href="#f-7">6. 直しの型</a></li><li><a href="#f-8">7. 穴が見つかったらどこに戻すか</a></li><li><a href="#f-9">8. 保護者への伝え方</a></li><li><a href="#f-10">9. 直前期の切り替え</a></li><li><a href="#f-11">10. 過去問ライブ（kakyo・集団版）との対応</a></li><li><a href="#f-12">11. 講師がやりがちなミス</a></li></ol></details></div>
@@ -893,6 +898,7 @@ blockquote{margin:10px 0;padding:10px 14px;background:var(--warnbg);border-left:
 <li>過去問で見つかった穴を、その場の解説だけで済ませて基礎教材に戻さない。</li>
 <li>塾で覚えた別解法と Eden 式が混在（「ノイズ」）しているのを放置する。解法は講師間でも Eden の型に統一する。</li>
 </ul></section>
+<div class="nextnav"><button data-go="method">← ① 指導メソッドに戻る</button><div class="nn-l">ここまでが ② 過去問対策フロー</div></div>
 </div>
 <p class="foot">家庭教師 Eden ／ 講師向け内部資料。URL を知っている人だけが閲覧できます（検索エンジン非掲載）。</p>
 </div></div>
@@ -900,6 +906,7 @@ blockquote{margin:10px 0;padding:10px 14px;background:var(--warnbg);border-left:
 const tabs=[...document.querySelectorAll('.tabs button')];const pages={flow:document.getElementById('p-flow'),method:document.getElementById('p-method')};
 function show(k,push){tabs.forEach(b=>b.classList.toggle('on',b.dataset.k===k));Object.entries(pages).forEach(([kk,el])=>el.classList.toggle('on',kk===k));document.querySelectorAll('.tocwrap').forEach(w=>w.style.display=w.dataset.k===k?'block':'none');if(push)history.replaceState(null,'','#'+k);}
 tabs.forEach(b=>b.addEventListener('click',()=>{show(b.dataset.k,true);window.scrollTo({top:0});}));
+document.querySelectorAll('.nextnav button').forEach(b=>b.addEventListener('click',()=>{show(b.dataset.go,true);window.scrollTo({top:0});}));
 const h=location.hash.replace('#','');if(h.startsWith('f-')||h==='flow')show('flow');else show('method');
 if(h.startsWith('f-')||h.startsWith('m-')){setTimeout(()=>{const el=document.getElementById(h);if(el)el.scrollIntoView();},50);}
 document.querySelectorAll('.toc a').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el){e.preventDefault();show(id.startsWith('m-')?'method':'flow');el.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'','#'+id);}}));
