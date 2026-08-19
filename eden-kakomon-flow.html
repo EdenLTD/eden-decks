@@ -1,51 +1,83 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-<title>Eden 過去問対策フロー ＋ 指導メソッド</title><meta name="description" content="Eden（koki）の授業記録から整理した、講師共有用の過去問対策フローと指導メソッド（2026-08-19）"><style>
-:root{--ink:#1f2933;--muted:#5b6b7a;--line:#e3e8ee;--bg:#ffffff;--soft:#f6f8fa;--accent:#0f6fb5;--warn:#b7791f}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Sans","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;line-height:1.7;font-size:15px}
-header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5}
-header .in{max-width:1100px;margin:0 auto;padding:10px 20px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-header h1{font-size:16px;margin:0;font-weight:700}
-nav a{color:var(--accent);text-decoration:none;font-size:14px;padding:4px 8px;border-radius:6px}nav a:hover{background:var(--soft)}
-main{max-width:1100px;margin:0 auto;padding:20px}
-section.doc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 30px;margin:0 0 28px}
-section.doc h1{font-size:24px;margin:0 0 6px;border-bottom:2px solid var(--ink);padding-bottom:8px}
-section.doc h2{font-size:19px;margin:30px 0 8px;padding-left:10px;border-left:4px solid var(--accent)}
-section.doc h3{font-size:16px;margin:22px 0 6px;color:#243b53}
-table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:14px}th,td{border:1px solid var(--line);padding:7px 10px;vertical-align:top;text-align:left}th{background:var(--soft)}
-blockquote{margin:12px 0;padding:10px 14px;background:#fff8e6;border-left:4px solid var(--warn);color:#4a3b12}
-code{background:var(--soft);padding:1px 5px;border-radius:4px;font-size:.92em}
-li{margin:3px 0}
-.sup{display:inline-block;font-size:11px;padding:0 6px;border-radius:10px;margin-left:4px;vertical-align:middle;background:#eef2f6;color:#4a5b6c}
-.sup.s1{background:#f4f4f4;color:#888}.sup.s2{background:#e8f1fb;color:#2c5f8d}.sup.s3{background:#dbeafe;color:#1e4e8c}.sup.s4{background:#c7dcf5;color:#163d70}.sup.s5{background:#0f6fb5;color:#fff}
-.sup.koki{background:#fde68a;color:#5b4300;font-weight:700}
-.legend{font-size:13px;color:var(--muted);margin:0 0 14px}
-details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:0 0 28px;background:#fff}summary{cursor:pointer;font-weight:700;font-size:16px;padding:6px 0}
-.meta{color:var(--muted);font-size:13px}
-@media (max-width:640px){section.doc{padding:16px}main{padding:10px}}
+<title>Eden 過去問対策フロー ＋ 指導メソッド</title>
+<meta name="description" content="Eden（koki）の授業記録から整理した、講師共有用の過去問対策フローと指導メソッド（2026-08-19）">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1b2733;--muted:#5d6b7a;--line:#e4e9ef;--bg:#f6f8fb;--card:#fff;--accent:#0b6fb6;--accent2:#e8f1fb;--warn:#b26a00;--warnbg:#fff6e5;--ok:#1f7a4d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",system-ui,sans-serif;line-height:1.85;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top .in{max-width:1180px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:15px;letter-spacing:.02em}.brand small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.tabs{display:flex;gap:6px;margin-left:auto}
+.tabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 16px;font-size:14px;cursor:pointer;color:var(--ink)}
+.tabs button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.print{border:none;background:none;color:var(--muted);font-size:13px;cursor:pointer;text-decoration:underline}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 18px 60px;display:grid;grid-template-columns:250px 1fr;gap:26px}
+aside{position:sticky;top:66px;align-self:start;max-height:calc(100vh - 80px);overflow:auto}
+.toc{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.toc li a{display:block;padding:6px 12px;color:var(--muted);text-decoration:none;font-size:13.5px;border-left:2px solid transparent;margin-left:-2px}
+.toc li a:hover,.toc li a.on{color:var(--accent);border-left-color:var(--accent);background:var(--accent2)}
+.page{display:none}.page.on{display:block}
+.intro{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin-bottom:18px}
+.intro h1{font-size:26px;margin:0 0 8px;letter-spacing:.01em}
+.intro p{margin:6px 0;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin:0 0 18px}
+.card h2{font-size:20px;margin:0 0 12px;display:flex;align-items:center;gap:10px}
+.card h2 .num{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;border-radius:8px;background:var(--accent);color:#fff;font-size:15px;font-weight:700}
+.card h2 .num:empty{display:none}
+h3.sub{font-size:16px;margin:20px 0 6px;padding-left:10px;border-left:4px solid var(--accent)}
+.card ul,.card ol{padding-left:1.4em}.card li{margin:5px 0}
+.card li strong,.card p strong{background:linear-gradient(transparent 62%,#fff1a8 62%)}
+.callout{display:flex;gap:12px;align-items:flex-start;background:var(--accent2);border-radius:10px;padding:12px 14px;margin:10px 0 14px}
+.callout .tag{flex:none;background:var(--accent);color:#fff;border-radius:6px;padding:2px 8px;font-size:12px;font-weight:700;margin-top:4px}
+.callout p{margin:0}
+.tbl{overflow-x:auto;margin:10px 0 14px;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:9px 12px;vertical-align:top;text-align:left}
+th{background:#f1f5f9;font-weight:700;white-space:nowrap}
+td:first-child{font-weight:700;white-space:nowrap;background:#fbfcfe}
+tr:last-child td{border-bottom:none}
+.sumgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin:6px 0 4px}
+.sumcard{display:flex;gap:12px;background:#fbfdff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.sumcard .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.sumcard .t{font-size:14.5px;line-height:1.7}
+.sumcard .t strong{background:none;color:var(--accent);font-weight:800}
+code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.9em}
+blockquote{margin:10px 0;padding:10px 14px;background:var(--warnbg);border-left:4px solid var(--warn);border-radius:6px}
+
+.routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:8px 0 4px}
+.route{background:#fbfdff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.route .rt{font-weight:800;color:var(--accent);margin-bottom:4px}.route p{margin:0;font-size:14px}
+.foot{color:var(--muted);font-size:12.5px;text-align:center;padding:20px}
+.mtoc{display:none}
+@media (max-width:900px){.wrap{grid-template-columns:1fr;padding:14px 12px 50px}aside{display:none}.mtoc{display:block;margin:0 0 14px}
+ .mtoc details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px 14px}.mtoc summary{font-weight:700;cursor:pointer}
+ .card,.intro{padding:16px 16px;border-radius:12px}.card h2{font-size:18px}.intro h1{font-size:21px}body{font-size:15px}.tabs{margin-left:0;width:100%}}
+@media print{.top,aside,.mtoc,.print{display:none}.page{display:block!important}.wrap{display:block;max-width:none;padding:0}.card,.intro{border:none;box-shadow:none;padding:6px 0;break-inside:avoid}body{font-size:12.5px;background:#fff}.sumgrid{grid-template-columns:1fr 1fr}table{min-width:0}.tbl{border:none}.card li strong,.card p strong{background:none;text-decoration:underline}}
 </style></head><body>
-<header><div class="in"><h1>Eden 過去問対策フロー ＋ 指導メソッド</h1><nav><a href="#flow">過去問フロー</a><a href="#method">指導メソッド</a></nav><span class="meta">2026-08-19 版</span></div></header>
-<main>
-<section class="doc" id="flow"><h1 id="eden">Eden 過去問対策フロー（講師共有用）</h1>
+<div class="top"><div class="in"><div class="brand">Eden 講師共有<small>過去問対策フロー ＋ 指導メソッド（2026-08-19 版）</small></div>
+<div class="tabs"><button data-k="flow" class="on">① 過去問対策フロー</button><button data-k="method">② 指導メソッド</button><button class="print" onclick="window.print()">印刷 / PDF</button></div></div></div>
+<div class="wrap">
+<aside><div class="tocwrap" data-k="flow"><ol class="toc "><li><a href="#f-1">0. 一枚で言うと</a></li><li><a href="#f-2">1. 過去問に入っていいか（教科ごとの判定）</a></li><li><a href="#f-3">2. 準備（買う・集める・管理する）</a></li><li><a href="#f-4">3. 学校の選び方と順番</a></li><li><a href="#f-5">4. 1年分の回し方（家と授業の分担）</a></li><li><a href="#f-6">5. 採点と目標</a></li><li><a href="#f-7">6. 直しの型</a></li><li><a href="#f-8">7. 穴が見つかったらどこに戻すか</a></li><li><a href="#f-9">8. 保護者への伝え方</a></li><li><a href="#f-10">9. 直前期の切り替え</a></li><li><a href="#f-11">10. 過去問ライブ（kakyo・集団版）との対応</a></li><li><a href="#f-12">11. 講師がやりがちなミス</a></li></ol></div><div class="tocwrap" data-k="method" style="display:none"><ol class="toc "><li><a href="#m-1">1. 思想（一貫している判断）</a></li><li><a href="#m-2">2. 教材の標準ルート</a></li><li><a href="#m-3">3. 授業の型</a></li><li><a href="#m-4">4. 過去問</a></li><li><a href="#m-5">5. 生徒の状態 → 打ち手（主要）</a></li><li><a href="#m-6">6. 教科別の定石（要点）</a></li><li><a href="#m-7">7. EdenQuest の指示の仕方</a></li><li><a href="#m-8">8. 保護者対応</a></li></ol></div></aside>
+<div>
+<div class="page on" id="p-flow">
+<div class="mtoc"><details><summary>目次（過去問対策フロー）</summary><ol class="toc "><li><a href="#f-1">0. 一枚で言うと</a></li><li><a href="#f-2">1. 過去問に入っていいか（教科ごとの判定）</a></li><li><a href="#f-3">2. 準備（買う・集める・管理する）</a></li><li><a href="#f-4">3. 学校の選び方と順番</a></li><li><a href="#f-5">4. 1年分の回し方（家と授業の分担）</a></li><li><a href="#f-6">5. 採点と目標</a></li><li><a href="#f-7">6. 直しの型</a></li><li><a href="#f-8">7. 穴が見つかったらどこに戻すか</a></li><li><a href="#f-9">8. 保護者への伝え方</a></li><li><a href="#f-10">9. 直前期の切り替え</a></li><li><a href="#f-11">10. 過去問ライブ（kakyo・集団版）との対応</a></li><li><a href="#f-12">11. 講師がやりがちなミス</a></li></ol></details></div>
+<div class="intro"><h1>Eden 過去問対策フロー（講師共有用）</h1>
 <p>2026-08-19 版。Eden（koki）が実際に回している過去問の進め方を、講師全員が同じ手順で踏めるように整理したもの。個別授業を基本とし、集団形式の過去問ライブ（kakyo）との対応は §10 にまとめる。</p>
-<hr />
-<h2 id="0">0. 一枚で言うと</h2>
-<ol>
-<li><strong>過去問に入る条件は「時期」ではなく「基礎固めが終わったか」</strong>。目安は小6の夏（8月）だが、基礎が遅れている子は後ろに回す。判定は教科ごとに行い、済んだ教科から着手してよい。</li>
-<li><strong>夏にやるのは練習校（埼玉栄・穎明館クラス）だけ。本命校は温存する</strong>。第一志望は「もったいないので取っておく」。</li>
-<li><strong>1年分は「家で初回無制限・時間計測 → 提出 → 授業でレビュー」</strong>。授業中に丸ごと解かせない。授業で解かせる時は大問ごとに切り分けて短縮タイマー（20〜25分）。</li>
-<li><strong>当面の目標は6割</strong>。まず半分を確実に。算数は「四角一（計算）」全問正解が必達。学校別・科目別に目標点を数字で伝える。</li>
-<li><strong>全問直しはしない</strong>。目標点に届くために必要な問題だけ直し、その取捨選択自体を教える。算国の直しは講師、理社は自宅でよい。</li>
-<li><strong>穴が見つかったら元教材（原田式／予習シリーズ／EdenQuest／魔法ワザ）で埋める。過去問自体も有益な問題集なので、直しのあと2周目まで回す</strong>（診断専用にしない）。</li>
-<li><strong>偏差値で志望校を決めない</strong>。秋以降は過去問の実点数（相性）で判断。<strong>初日に確実な合格</strong>を最優先に組む。</li>
-</ol>
-<hr />
-<h2 id="1">1. 過去問に入っていいか（教科ごとの判定）</h2>
+
+</div>
+<section class="card" id="f-1"><h2><span class="num">0</span>一枚で言うと</h2>
+<div class="sumgrid"><div class="sumcard"><div class="n">1</div><div class="t"><strong>過去問に入る条件は「時期」ではなく「基礎固めが終わったか」</strong>。目安は小6の夏（8月）だが、基礎が遅れている子は後ろに回す。判定は教科ごとに行い、済んだ教科から着手してよい。</div></div><div class="sumcard"><div class="n">2</div><div class="t"><strong>夏にやるのは練習校（埼玉栄・穎明館クラス）だけ。本命校は温存する</strong>。第一志望は「もったいないので取っておく」。</div></div><div class="sumcard"><div class="n">3</div><div class="t"><strong>1年分は「家で初回無制限・時間計測 → 提出 → 授業でレビュー」</strong>。授業中に丸ごと解かせない。授業で解かせる時は大問ごとに切り分けて短縮タイマー（20〜25分）。</div></div><div class="sumcard"><div class="n">4</div><div class="t"><strong>当面の目標は6割</strong>。まず半分を確実に。算数は「四角一（計算）」全問正解が必達。学校別・科目別に目標点を数字で伝える。</div></div><div class="sumcard"><div class="n">5</div><div class="t"><strong>全問直しはしない</strong>。目標点に届くために必要な問題だけ直し、その取捨選択自体を教える。算国の直しは講師、理社は自宅でよい。</div></div><div class="sumcard"><div class="n">6</div><div class="t"><strong>穴が見つかったら元教材（原田式／予習シリーズ／EdenQuest／魔法ワザ）で埋める。過去問自体も有益な問題集なので、直しのあと2周目まで回す</strong>（診断専用にしない）。</div></div><div class="sumcard"><div class="n">7</div><div class="t"><strong>偏差値で志望校を決めない</strong>。秋以降は過去問の実点数（相性）で判断。<strong>初日に確実な合格</strong>を最優先に組む。</div></div></div>
+
+</section><section class="card" id="f-2"><h2><span class="num">1</span>過去問に入っていいか（教科ごとの判定）</h2>
 <ul>
 <li>判定は教科ごと。済んだ教科から着手してよい（例: 国語8月〜／理社お盆明け／算数8月後半〜 という時差スタート）。受験科目に含まれる教科だけ判定する。</li>
 <li>計算800・漢字/語彙は「筋トレ」の日課で、過去問期も並走させる（判定には含めない）。</li>
 </ul>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>教科</th>
@@ -75,12 +107,12 @@ details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:
 <td>歴史が「頭に入らない」子は旧石器〜鎌倉を3周して完璧にしてから江戸以降</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <ul>
 <li>難関校志望で「6年10月頃まで歯が立たない」見込みなら、5年のうちは過去問に触れず基礎固めに専念。</li>
 <li>残り期間が短い緊急ケース（受験まで4ヶ月等）だけは例外で、弱点把握のため早めに1年分だけ解かせる。</li>
 </ul>
-<h2 id="2">2. 準備（買う・集める・管理する）</h2>
+</section><section class="card" id="f-3"><h2><span class="num">2</span>準備（買う・集める・管理する）</h2>
 <ul>
 <li>赤本（声の教育社版）を早めに購入（解説付き必須。売り切れ前に）。学校公式サイトで無料公開されている年度はそれを使い、コピー・写真送付は不要。四谷大塚「過去問データベース」で1〜2年分試してから購入校を決めてもよい。</li>
 <li>学校ごとの必要年度数の目安: 直近3〜4年分（埼玉栄＝最低3年、獨協埼玉＝5年）。</li>
@@ -88,10 +120,10 @@ details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:
 <li><strong>解答は生徒に持たせない</strong>（丸暗記対策）。答え・解説は保護者が管理し、解き終わって提出したら渡す。保護者にこの役割を最初に依頼しておく。</li>
 <li>提出物は解いた答案用紙＋途中式。写真/PDF を LINE（ノート機能）で授業前に送らせる（講師が事前に目を通す）。</li>
 </ul>
-<h2 id="3">3. 学校の選び方と順番</h2>
-<p><strong>原則</strong>: 第一志望からは着手させない → 練習校・第二/第三志望・埼玉校のように「基礎知識で解けるレベル」から。理由は (a) 傾向を掴む練習、(b) 第一志望を温存する、(c) 易しい学校で実力の基準点を作って自信づけする。1校に絞って3年分程度仕上げてから次の学校（複数校を並行させると傾向が変わってどっちつかずのまま月が終わる）。</p>
+</section><section class="card" id="f-4"><h2><span class="num">3</span>学校の選び方と順番</h2>
+<div class="callout"><span class="tag">原則</span><p>: 第一志望からは着手させない → 練習校・第二/第三志望・埼玉校のように「基礎知識で解けるレベル」から。理由は (a) 傾向を掴む練習、(b) 第一志望を温存する、(c) 易しい学校で実力の基準点を作って自信づけする。1校に絞って3年分程度仕上げてから次の学校（複数校を並行させると傾向が変わってどっちつかずのまま月が終わる）。</p></div>
 <p>標準ペースの子の目安:</p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>時期の目安</th>
@@ -121,7 +153,7 @@ details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:
 <td>新規はやめて反復へ（§9）</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <ul>
 <li>基礎固めが遅れて後ろ倒しになった子は各段階を圧縮する。</li>
 <li>チャレンジ校の可否は理屈より先に1年分解かせて実測してから判断する。</li>
@@ -129,15 +161,15 @@ details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:
 <li>年度ごとの難化・易化は把握しておき（例: 埼玉栄は前年の方が難しかった）、どの年度をいつ割り当てるかの材料にする。</li>
 <li>「実際にやってみて、その結果を見て次にやるところを決める」— 得点結果を見てから次の学校・年度を決める。</li>
 </ul>
-<h2 id="4-1">4. 1年分の回し方（家と授業の分担）</h2>
-<h3 id="_1">家（宿題）</h3>
+</section><section class="card" id="f-5"><h2><span class="num">4</span>1年分の回し方（家と授業の分担）</h2>
+<h3 class="sub">家（宿題）</h3>
 <ol>
 <li>初回は時間無制限。所要時間を計測させる（本番より長くてよい。今どれだけかかるかを知るのが目的）。2回目以降・別年度は「時間を意識」させ、慣れたら本番時間で。</li>
 <li>土日にまとめて解く（1日2教科、午前＝算国／午後＝理社。本番の 8:30〜9:00 開始に合わせて午前に算数）。平日は復習と基礎トレ（計算・漢字の日課は止めない）。</li>
 <li>解いたら答案＋途中式を写真で提出。丸つけは保護者に依頼してよい（徐々に自己採点へ）。</li>
 <li>直しの分担: <strong>算数・国語の直しは講師が授業でやる</strong>（「やらなくていい問題」まで直して時間を無駄にしがちで、取捨選択の判断が要るから）。<strong>理科・社会の直しは自宅でやってよい</strong>（知識の直し）。</li>
 </ol>
-<h3 id="_2">授業（レビュー）</h3>
+<h3 class="sub">授業（レビュー）</h3>
 <ol>
 <li>冒頭で提出答案の得点を科目別・大問別に確認。「◯問中◯問→何%」を生徒に出させ、合格ライン（6割）と比べる。</li>
 <li>授業中に丸ごと1本は解かせない。解かせるなら大問ごとに切り分けて短縮タイマー（20〜25分）で「今の実力でどこまで自力で終わるか」を自覚させ、直後にそのまま採点・解説。</li>
@@ -148,16 +180,16 @@ details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:
 <li>過去問の解説一辺倒にせず、必ず基礎問題での理解度確認を挟む。保護者の「後半の難問だけ解説して」は鵜呑みにしない（理解度を無視した見立てであることが多い）。</li>
 <li>授業の締めで EdenQuest でやる単元＋次回教材を具体的に指示する。</li>
 </ol>
-<h3 id="_3">算数の大問ごとの扱い（機械的に）</h3>
+<h3 class="sub">算数の大問ごとの扱い（機械的に）</h3>
 <ul>
 <li>四角一（計算・小問集合）＝全問正解が必達。ここを落とすと合格点に届かない。見直し時間は後半の難問でなく四角一・二の検算に回す。</li>
 <li>四角二＝基本は解く。難問は捨てる。</li>
 <li>四角三以降＝(1) だけ狙う（「かっこ1はワンチャン」）。(2)(3) はほぼ捨て問、白紙で割り切る。大問の総数が多い試験ほど後半の小問は全員解けないので優先度を下げる。</li>
 <li>全体を先に見て解く順番を決めさせる。大問の最初の小問は必ず解く。</li>
 </ul>
-<h3 id="_4">国語の時間配分</h3>
+<h3 class="sub">国語の時間配分</h3>
 <p>全体を俯瞰して記述/記号の比率を確認 → 漢字（四角一）5分以内 → 問題と選択肢を先に読んで必要箇所だけ読む → 記号・抜き出しを先に、記述は最後（直前期は記述を後回し、記号・抜き出しで得点を固める）。記述はフル解答でなく最低限の要素で部分点狙い。</p>
-<h2 id="5">5. 採点と目標</h2>
+</section><section class="card" id="f-6"><h2><span class="num">5</span>採点と目標</h2>
 <ul>
 <li>当面の目標ラインは6割。得点推移の目安は「最初は2〜3割、5割を超えたら上出来」→6割に乗ったら次の段階（安全校で7割以上→一段上の学校）。</li>
 <li>科目で目標に差をつける: 全体6〜7割、得意科目8割、苦手科目5割。算数は伸びが頭打ちになりやすい「沼」、理社は短期間で7〜8割狙える得点源（秋以降は算数の演習量を落として理社の知識問題に比重を移すことがある）。</li>
@@ -166,7 +198,7 @@ details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:
 <li>偏差値を目標にしない（相対指標で夏以降必ず下がる。11月以降はほとんど参考にならない）。模試より過去問の実感、過去問の点数も「あくまで目安」と保護者に伝える。年度で難易度が違うので単純比較しない。</li>
 <li>配点構造（均等配点で難問と基本が同点、問題数が少ないと1問10点以上）を踏まえた時間配分を伝える。</li>
 </ul>
-<h2 id="6">6. 直しの型</h2>
+</section><section class="card" id="f-7"><h2><span class="num">6</span>直しの型</h2>
 <ul>
 <li>全問直しはしない。目標点に届くために必要な問題・配点の大きい問題・優先度マークの問題だけ直す。「全部直し始めたら時間の無駄」。</li>
 <li>誤答は「なぜ不正解か」を生徒自身の言葉でまとめさせ、選択肢問題はバツ選択肢のどこが誤りかを問題用紙に書き込ませる。</li>
@@ -176,8 +208,8 @@ details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:
 <li>同じ弱点が繰り返すなら暗記法自体を変える（音だけで覚えている→意味・用例とセット、一覧表を生活動線に貼る）。</li>
 <li>答案の分析にAIを使う場合も、AIは下書きまで。生徒に渡す内容と最終判断は必ず講師。</li>
 </ul>
-<h2 id="7">7. 穴が見つかったらどこに戻すか</h2>
-<table>
+</section><section class="card" id="f-8"><h2><span class="num">7</span>穴が見つかったらどこに戻すか</h2>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>穴の種類</th>
@@ -214,9 +246,9 @@ details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:
 <td>誤答を教科書で調べ直させ、暗記でなく因果・流れの理解に戻す</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>戻したら、その単元の類題（元教材の該当単元・次の年度の同単元）で埋まったことを確認してから先へ進む。過去問そのものも問題集として価値があるので、直しを終えたら期間を空けて2周目に回す（§6）。</p>
-<h2 id="8">8. 保護者への伝え方</h2>
+</section><section class="card" id="f-9"><h2><span class="num">8</span>保護者への伝え方</h2>
 <ul>
 <li>得点は伏せず率直に伝える。ただし「模試の偏差値に一喜一憂しない」「過去問の点数はあくまで目安」を毎回添える。保護者の不安は子に伝わる。</li>
 <li>次に買う教材・年度を具体的に指定し、理由もセットで（「解説が付くので声の教育社版」）。不要なものは明確に「不要」と言う。</li>
@@ -224,15 +256,15 @@ details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:
 <li>出願戦略（日程・倍率・初日確保・保険校）は保護者同席で相談し、最終判断は家庭に委ねる言い方（「〜した方がいいと思います」）。</li>
 <li>役割分担: 解答・解説の保管＝保護者（生徒に持たせない）／丸つけ＝保護者でよい／算国の直し＝講師、理社の直し＝自宅でよい。</li>
 </ul>
-<h2 id="9">9. 直前期の切り替え</h2>
+</section><section class="card" id="f-10"><h2><span class="num">9</span>直前期の切り替え</h2>
 <ul>
 <li>試験1週間前後〜前日: 新しい問題を詰め込まない。既習の反復・知識暗記・時間配分の確認・睡眠を優先。</li>
 <li>初日校で確実に合格を取ってから、チャレンジ校へ。</li>
 <li>過去問演習の日は疲れるので早めの休息を勧める。</li>
 </ul>
-<h2 id="10-kakyo">10. 過去問ライブ（kakyo・集団版）との対応</h2>
+</section><section class="card" id="f-11"><h2><span class="num">10</span>過去問ライブ（kakyo・集団版）との対応</h2>
 <p>個別授業版のフローは、集団形式の過去問ライブ（kakyo）にそのまま写像できる。</p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>個別授業</th>
@@ -265,8 +297,8 @@ details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:
 <td>記述はAIが点数帯を一次仕分け、送信は必ず講師</td>
 </tr>
 </tbody>
-</table>
-<h2 id="11">11. 講師がやりがちなミス</h2>
+</table></div>
+</section><section class="card" id="f-12"><h2><span class="num">11</span>講師がやりがちなミス</h2>
 <ul>
 <li>過去問を授業中に丸ごと解かせて、解説の時間が消える。</li>
 <li>保護者の「後半の難問だけ」要望に乗って基礎の理解確認を飛ばす。</li>
@@ -276,9 +308,13 @@ details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:
 <li>過去問で見つかった穴を、その場の解説だけで済ませて基礎教材に戻さない。</li>
 <li>塾で覚えた別解法と Eden 式が混在（「ノイズ」）しているのを放置する。解法は講師間でも Eden の型に統一する。</li>
 </ul></section>
-<section class="doc" id="method"><h1 id="eden-koki">Eden の指導メソッド（koki の授業の型）</h1>
+</div>
+<div class="page" id="p-method">
+<div class="mtoc"><details><summary>目次（指導メソッド）</summary><ol class="toc "><li><a href="#m-1">1. 思想（一貫している判断）</a></li><li><a href="#m-2">2. 教材の標準ルート</a></li><li><a href="#m-3">3. 授業の型</a></li><li><a href="#m-4">4. 過去問</a></li><li><a href="#m-5">5. 生徒の状態 → 打ち手（主要）</a></li><li><a href="#m-6">6. 教科別の定石（要点）</a></li><li><a href="#m-7">7. EdenQuest の指示の仕方</a></li><li><a href="#m-8">8. 保護者対応</a></li></ol></details></div>
+<div class="intro"><h1>Eden の指導メソッド（koki の授業の型）</h1>
 <p>2026-08-19 版。koki の授業記録（2025-06〜2026-08 の Zoom 要約・授業報告書・授業録画）から、教材の使い方・授業の型・判断のルールを整理したもの。講師の研修と、講師向け支援機能（生徒への次の一手・指導提案）の判断基準に使う。</p>
-<h2 id="1">1. 思想（一貫している判断）</h2>
+</div>
+<section class="card" id="m-1"><h2><span class="num">1</span>思想（一貫している判断）</h2>
 <ol>
 <li><strong>量より継続</strong>。1日1ページでも毎日。「最低1枚でもいい」。目標量より「毎日できたこと」を評価する。</li>
 <li><strong>基礎に遡ることを躊躇しない</strong>。6年生でも4年内容、必要なら小2〜3の計算まで戻る。学年相応の教材にこだわらない。</li>
@@ -291,22 +327,18 @@ details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:
 <li><strong>EdenQuest をゴール化させない</strong>（受験合格が目標。クリア条件を意図的に置かない）。一方で達成レポートは弱点発見センサーとして使う（自己申告を待たない）。</li>
 <li><strong>塾を減らす方向は一貫</strong>。ただし直接「辞めろ」とは言わず、時間対効果と実例で保護者に判断させる。</li>
 </ol>
-<h2 id="2">2. 教材の標準ルート</h2>
-<p><strong>算数</strong>: ちびむすドリル（基礎が怪しい子は最優先。学年を遡ってどこから怪しいか特定）→ 原田式プリント（入口は★1〜2＝角度→面積→円と扇形→割合。受験で使う文章題単元は★3まで。★4は受験に出ない）＋ 計算800（1日1ページ・序盤35回を2周、朝の軽い日課）→ 下剋上算数 基礎編（1周→誤答のみ2周目→10回区切りで復習）→ 過去問。予習シリーズ算数・塾の新演習は使わない（難度過多）。下剋上で怪しい単元が出たら原田式で確認（セット運用）。</p>
-<p><strong>国語</strong>: ふくしま式（言い換える力→比べる力→たどる力。添削が要るので授業内。読解演習より先に日本語の構造）→ 予習シリーズ国語（4年上下から。6年でも読解が苦手なら4年上）→ 四科のまとめ（国語）＋ 語彙力テスト（週1〜2）＋ 辞書引きノート（全生徒共通）→ 過去問。</p>
-<p><strong>理社</strong>: EdenQuest（旧カフート）の動画→クイズで知識を入れる（理科＝生物・地学から、物理・化学は夏以降／社会＝地理→歴史（旧石器〜鎌倉を繰り返して完璧に）→公民）→ 予習シリーズ5年上下を教科書として読み＋線引き（未習・苦手単元は授業中に）→ 四科のまとめ（社会）／メモリーチェック・魔法ワザ（理科の力学・計算）→ 過去問。</p>
-<p><strong>共通</strong>: 過去問で穴が見つかったら元教材に差し戻して埋め、再挑戦（往復構造）。過去問自体も有益な問題集として直しのあと2周目まで回す。教材は増やさない（3つ程度に絞る）。不要な教材は「不要」と明言して教材費を絞る。</p>
-<h2 id="3">3. 授業の型</h2>
+</section><section class="card" id="m-2"><h2><span class="num">2</span>教材の標準ルート</h2>
+<div class="routes"><div class="route"><div class="rt">算数</div><p>ちびむすドリル（基礎が怪しい子は最優先。学年を遡ってどこから怪しいか特定）→ 原田式プリント（入口は★1〜2＝角度→面積→円と扇形→割合。受験で使う文章題単元は★3まで。★4は受験に出ない）＋ 計算800（1日1ページ・序盤35回を2周、朝の軽い日課）→ 下剋上算数 基礎編（1周→誤答のみ2周目→10回区切りで復習）→ 過去問。予習シリーズ算数・塾の新演習は使わない（難度過多）。下剋上で怪しい単元が出たら原田式で確認（セット運用）。</p></div><div class="route"><div class="rt">国語</div><p>ふくしま式（言い換える力→比べる力→たどる力。添削が要るので授業内。読解演習より先に日本語の構造）→ 予習シリーズ国語（4年上下から。6年でも読解が苦手なら4年上）→ 四科のまとめ（国語）＋ 語彙力テスト（週1〜2）＋ 辞書引きノート（全生徒共通）→ 過去問。</p></div><div class="route"><div class="rt">理社</div><p>EdenQuest（旧カフート）の動画→クイズで知識を入れる（理科＝生物・地学から、物理・化学は夏以降／社会＝地理→歴史（旧石器〜鎌倉を繰り返して完璧に）→公民）→ 予習シリーズ5年上下を教科書として読み＋線引き（未習・苦手単元は授業中に）→ 四科のまとめ（社会）／メモリーチェック・魔法ワザ（理科の力学・計算）→ 過去問。</p></div><div class="route"><div class="rt">共通</div><p>過去問で穴が見つかったら元教材に差し戻して埋め、再挑戦（往復構造）。過去問自体も有益な問題集として直しのあと2周目まで回す。教材は増やさない（3つ程度に絞る）。不要な教材は「不要」と明言して教材費を絞る。</p></div></div></section><section class="card" id="m-3"><h2><span class="num">3</span>授業の型</h2>
 <ul>
 <li><strong>前</strong>: 宿題・過去問の答案は写真/PDFで事前提出させ、間違えた単元を把握してから入る。デイリーシート／EdenQuest の達成レポートで手薄な教科・単元を確認し、その回の重点を決める。模試・過去問があれば得点整理から。</li>
 <li><strong>中</strong>: 生徒に自力で解かせ、根拠を生徒の言葉で言語化させてから直す（一問一答Q&amp;A）。算数は図（天秤図・線分図・面積図・ダイアグラム・ドラえもん図・キアジ図・レバー図）を必ず書かせてから式。途中式を省略させない。国語は音読→設問、知らない語はその場で辞書。理社の未習単元は予習シリーズを開かせて教科書読み＋線引き。語呂合わせ・生活比喩を多用。1コマ2時間、算国が最低ライン、1時間で休憩／教科切替。飽きたら EdenQuest のクイズに切り替え。</li>
 <li><strong>後</strong>: 宿題は「教材名＋ページ/回/番号」で曖昧さなく。授業の最後に EdenQuest で今週どの単元をどこまで進めるかを指示。丸つけまで生徒にさせて写真提出。授業報告書（概要／重要ポイント／Q&amp;A／次回アクション／録画リンク）を毎回。</li>
 <li><strong>宿題の型</strong>: 毎日＝計算1ページ＋漢字/語彙1ページ＋原田式数ページ＋理社 EdenQuest 1単元（計算と漢字は「筋トレ」）。「◯回まで1周→誤答のみ2周目→10回区切りで全問1周」。土日に過去問、平日は復習と基礎トレ。「できる範囲で」「サボり報告もOK」でハードルを下げる。複数単元の並行は6年である程度できる子向け。基礎が危うい子は1単元集中／教材を絞る。</li>
 </ul>
-<h2 id="4">4. 過去問</h2>
+</section><section class="card" id="m-4"><h2><span class="num">4</span>過去問</h2>
 <p>別紙「過去問対策フロー」に手順化。要点: 開始条件は「基礎固め完了」（目安 小6の8月）／夏は練習校のみ・本命温存／家で初回無制限計測→授業でレビュー・授業内は大問切り分け短縮タイマー／目標6割・四角一必達／全問直しをしない／穴は元教材へ差し戻し・過去問も直し後に2周目／偏差値でなく実点数／初日に確実な合格。</p>
-<h2 id="5">5. 生徒の状態 → 打ち手（主要）</h2>
-<table>
+</section><section class="card" id="m-5"><h2><span class="num">5</span>生徒の状態 → 打ち手（主要）</h2>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>生徒の状態</th>
@@ -403,15 +435,15 @@ details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:
 <td>新規をやめて反復・暗記・睡眠。初日に確実な合格を置く</td>
 </tr>
 </tbody>
-</table>
-<h2 id="6">6. 教科別の定石（要点）</h2>
+</table></div>
+</section><section class="card" id="m-6"><h2><span class="num">6</span>教科別の定石（要点）</h2>
 <ul>
 <li><strong>算数</strong>: 天秤図（濃度・平均・比・モーメント横断）／丸計算（仮の数）／図形は分解・付け足す・等積変形・補助線（円が出たら半径）／速さは3.6で一発変換、逆比／鶴亀算＝面積図（合計と2箇所不明が出たら疑う）／仕事算＝全体を最小公倍数／等差数列＝ドラえもんの図・台形公式／通過算＝電柱・鉄橋・トンネル通過・トンネル隠れ／相似＝蝶々・ピラミッド・直角三角形内／逆算は番号を振って逆順（÷□・−□だけ例外）／回転体は上下移動のみ・ピラミッド相似／計算の工夫（共通因数・(a+b)(a−b)・キセル算・3.14は最後に1回）／紙で解く（タブレット不可）。</li>
 <li><strong>国語</strong>: ふくしま式3部構成が背骨／抽象⇄具体（AとはBである、いわば）／対比「確かに〜しかし〜だから」／音読／話題→具体例→結論の構造／接続詞の分類／事実＋心情／辞書引きノート（紙辞書、対義語・例文セット）／物語文は時間・場所・人物、あらすじで課題を掴んでから該当箇所だけ精読／偽の選択肢の型（先入観・常識的すぎ・非常識すぎ・論点ずらし・言い換え破綻・強い断定語）。</li>
 <li><strong>理科</strong>: 力学は算数の逆比・モーメントの横展開／浮力＝押しのけた水の体積(g)／気体・水溶液は発生・捕集・指示薬をセット／分類は対比軸の表／中和はカレーライスの法則／数値比較は単位量あたりに直してから／光合成の産物は毎回正確に訂正／実験は条件を1つだけ変える。</li>
 <li><strong>社会</strong>: 地理は位置・気候・地形と産業をセット／歴史は因果と流れ、語呂は本文に書き込む／地理→歴史→公民の順／都道府県は動画でイメージ→テスト／選択肢はキーワード一致で判断させない／Googleマップ・地図帳で位置確認。</li>
 </ul>
-<h2 id="7-edenquest">7. EdenQuest の指示の仕方</h2>
+</section><section class="card" id="m-7"><h2><span class="num">7</span>EdenQuest の指示の仕方</h2>
 <ul>
 <li>レッスンは動画（30〜60分）→クイズ、2周目以降は動画を飛ばしてクイズのみ。理科は生物から、社会は地理→歴史→公民。1日1ステージが目安。</li>
 <li>語彙・知識クエストは毎日少しずつ。誤答は復習ノートへ。全レッスン制覇後は確認テスト。</li>
@@ -419,6 +451,18 @@ details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:
 <li>達成レポート・進捗はデータで確認し、未着手・偏りを個別に指摘（生徒の自己申告を待たない）。「社会をほぼ100%こなした生徒が模試で過去最高点」を動機付けに使う。</li>
 <li>授業の最後に「今週はここまで」と単元範囲で指示。バグはスクショ／アプリ内フィードバックで報告させる。クリア条件を置かない（受験合格が目標、EdenQuest はゴールではない）。</li>
 </ul>
-<h2 id="8">8. 保護者対応</h2>
+</section><section class="card" id="m-8"><h2><span class="num">8</span>保護者対応</h2>
 <p>LINE（グループ／ノート）が主要導線。授業報告書＋録画リンクを毎回。学習記録は写真、サボり報告OK。次に買う教材は書名で、不要は「不要」。塾・習い事の見直しは実例つきではっきり言うが最終判断は家庭。丸つけは保護者・算国の直しは講師。スケジュールは生徒と一緒に作って合意。声かけは「今日はどれから始める?」の問いかけ形。宿題は「先生との約束」にする。</p></section>
-</main></body></html>
+</div>
+<p class="foot">家庭教師 Eden ／ 講師向け内部資料。URL を知っている人だけが閲覧できます（検索エンジン非掲載）。</p>
+</div></div>
+<script>
+const tabs=[...document.querySelectorAll('.tabs button')];const pages={flow:document.getElementById('p-flow'),method:document.getElementById('p-method')};
+function show(k,push){tabs.forEach(b=>b.classList.toggle('on',b.dataset.k===k));Object.entries(pages).forEach(([kk,el])=>el.classList.toggle('on',kk===k));document.querySelectorAll('.tocwrap').forEach(w=>w.style.display=w.dataset.k===k?'block':'none');if(push)history.replaceState(null,'','#'+k);}
+tabs.forEach(b=>b.addEventListener('click',()=>{show(b.dataset.k,true);window.scrollTo({top:0});}));
+const h=location.hash.replace('#','');if(h.startsWith('m-')||h==='method')show('method');else show('flow');
+if(h.startsWith('f-')||h.startsWith('m-')){setTimeout(()=>{const el=document.getElementById(h);if(el)el.scrollIntoView();},50);}
+document.querySelectorAll('.toc a').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el){e.preventDefault();show(id.startsWith('m-')?'method':'flow');el.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'','#'+id);}}));
+const obs=new IntersectionObserver(es=>{es.forEach(x=>{if(x.isIntersecting){document.querySelectorAll('.toc a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+x.target.id));}})},{rootMargin:'-20% 0px -70% 0px'});
+document.querySelectorAll('section.card').forEach(s=>obs.observe(s));
+</script></body></html>
