@@ -1,0 +1,182 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+<title>edenteacher の使い方 — 講師向け操作ガイド</title>
+<meta name="description" content="家庭教師Eden の授業管理システム edenteacher の講師向け操作ガイド（新規講師研修用・2026-08-20）">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1b2733;--muted:#5d6b7a;--line:#e4e9ef;--bg:#f6f8fb;--card:#fff;--accent:#0b6fb6;--accent2:#e8f1fb;--warn:#b26a00;--warnbg:#fff6e5;--ok:#1f7a4d;--okbg:#e9f6ef}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",system-ui,sans-serif;line-height:1.85;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top .in{max-width:1100px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:15px;letter-spacing:.02em}.brand small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.wrap{max-width:1100px;margin:0 auto;padding:22px 18px 60px;display:grid;grid-template-columns:240px 1fr;gap:26px}
+aside{position:sticky;top:66px;align-self:start;max-height:calc(100vh - 80px);overflow:auto}
+.toc{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.toc li a{display:block;padding:6px 12px;color:var(--muted);text-decoration:none;font-size:13.5px;border-left:2px solid transparent;margin-left:-2px}
+.toc li a:hover{color:var(--accent);border-left-color:var(--accent);background:var(--accent2)}
+.intro{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin-bottom:18px}
+.intro h1{font-size:25px;margin:0 0 8px;letter-spacing:.01em}
+.intro p{margin:6px 0;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin:0 0 18px}
+.card h2{font-size:20px;margin:0 0 12px;display:flex;align-items:center;gap:10px}
+.card h2 .num{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;border-radius:8px;background:var(--accent);color:#fff;font-size:15px;font-weight:700}
+h3.sub{font-size:16px;margin:20px 0 6px;padding-left:10px;border-left:4px solid var(--accent)}
+.card ul,.card ol{padding-left:1.4em}.card li{margin:5px 0}.card ul ul{margin:4px 0 6px}
+.card li strong,.card p strong{background:linear-gradient(transparent 62%,#fff1a8 62%)}
+.callout{border-radius:10px;padding:12px 16px;margin:14px 0;font-size:14.5px}
+.callout.warn{background:var(--warnbg);border:1px solid #f0d9ab;color:var(--warn)}
+.callout.ok{background:var(--okbg);border:1px solid #bfe3cf;color:var(--ok)}
+.callout.info{background:var(--accent2);border:1px solid #c8ddf2;color:#0b5a94}
+.tag{display:inline-block;padding:1px 9px;border-radius:999px;background:var(--accent2);color:var(--accent);font-size:12.5px;font-weight:700;vertical-align:middle}
+code{background:#eef2f7;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:13.5px}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}aside{position:static;max-height:none}}
+@media print{.top,aside{display:none}.wrap{grid-template-columns:1fr;padding:0}body{background:#fff}}
+</style></head><body>
+<div class="top"><div class="in"><div class="brand">edenteacher の使い方<small>家庭教師Eden 講師向け操作ガイド（2026-08-20版）</small></div></div></div>
+<div class="wrap">
+<aside><ul class="toc">
+<li><a href="#start">1. はじめに・ログイン</a></li>
+<li><a href="#dashboard">2. ダッシュボード</a></li>
+<li><a href="#report">3. 授業報告書を書く</a></li>
+<li><a href="#cancel">4. キャンセル・訂正</a></li>
+<li><a href="#schedule">5. スケジュール</a></li>
+<li><a href="#zoom">6. Zoom連携（任意）</a></li>
+<li><a href="#salary">7. 給与</a></li>
+<li><a href="#students">8. 生徒管理</a></li>
+<li><a href="#edenquest">9. EdenQuest 連携</a></li>
+<li><a href="#guide">10. 指導ガイド</a></li>
+<li><a href="#help">11. 困ったとき</a></li>
+</ul></aside>
+<main>
+
+<div class="intro">
+<h1>🖥️ edenteacher の使い方</h1>
+<p>edenteacher は家庭教師Eden の授業管理システムです。授業報告書の作成・LINE送信、スケジュール管理、給与計算までここで完結します。このガイドは新規講師の研修用に、講師が日常的に使う機能を順に説明します。</p>
+<p>指導の中身（授業の型・過去問対策）は別ガイド「Eden の指導メソッド」を読んでください。どちらもアプリのヘッダー「📘 指導ガイド」から開けます。</p>
+</div>
+
+<div class="card" id="start">
+<h2><span class="num">1</span>はじめに・ログイン</h2>
+<ul>
+<li>アカウントは<strong>管理者が発行</strong>します。案内されたメールアドレスとパスワードでログインしてください。</li>
+<li>URL: <a href="https://edenteacher.vercel.app" target="_blank" rel="noopener">https://edenteacher.vercel.app</a></li>
+<li>スマホでも使えますが、報告書作成は PC 推奨です。</li>
+</ul>
+</div>
+
+<div class="card" id="dashboard">
+<h2><span class="num">2</span>ダッシュボード</h2>
+<p>ログイン直後の画面。日々の起点になります。</p>
+<ul>
+<li><strong>担当生徒の一覧</strong> — 自分がメイン担当・サブ講師の生徒が並びます。カードから生徒詳細へ。</li>
+<li><strong>意思確認アラート</strong> — 残り回数が4回以下で継続の意思確認がまだの生徒はバナーで知らせます。保護者に継続の確認をして、結果を生徒詳細に反映してください。</li>
+<li><strong>報告書の書き忘れリマインド</strong> — 授業の Zoom 要約があるのに報告書が無い日はカードで知らせます（授業翌日の昼12時以降に表示、7日前まで遡り）。報告書を書けば自動で消えます。面談など報告書が不要な要約は「消す」で非表示にできます。</li>
+</ul>
+<div class="callout info">リマインドカードから報告書作成に進むと、<strong>授業日がその日の日付で引き継がれます</strong>。今日の日付で送ってしまう事故を防げるので、書き忘れ分はカードから書くのがおすすめです。</div>
+</div>
+
+<div class="card" id="report">
+<h2><span class="num">3</span>授業報告書を書く（最重要）</h2>
+<p>授業をしたら<strong>その日のうちに</strong>報告書を書いて送信します。送信すると保護者の LINE に自動で届きます。</p>
+<h3 class="sub">手順</h3>
+<ol>
+<li>ダッシュボードまたは生徒詳細から「報告書を作成」へ。</li>
+<li><strong>生徒と授業日を確認</strong>。タイトルは「日付・曜日・第◯回」が自動で入ります。</li>
+<li>本文をエディタで書く（見出し・箇条書き・太字が使えます）。書く内容の型は「指導メソッド」ガイド参照。</li>
+<li>Zoom 連携済みなら、その授業の<strong>AI要約</strong>と<strong>録画</strong>をピッカーで選んで添付できます（送信前に選び直し可能）。</li>
+<li>授業動画（YouTube）がある場合は動画を選択。</li>
+<li>送信 → 保護者の LINE に通知が届き、ダッシュボードに戻ります。</li>
+</ol>
+<div class="callout warn"><strong>授業日はタイトル内の日付がすべての基準</strong>です。翌日以降に書くときは、タイトルの日付が「書いた日」ではなく<strong>実際の授業日</strong>になっているか必ず確認してください。給与計算・保護者への通知の両方に影響します。</div>
+<ul>
+<li>送信後もタイトルの日付は編集で直せます（保護者が見る公開ページは即反映。届いた LINE の文言は古いままなので、必要なら再送）。</li>
+<li>報告書は公開 URL で保護者がいつでも閲覧できます。</li>
+</ul>
+</div>
+
+<div class="card" id="cancel">
+<h2><span class="num">4</span>キャンセル・訂正</h2>
+<ul>
+<li><strong>当日キャンセル</strong> — キャンセル報告書を作成すると保護者に通知されます。規定により残り回数は消化扱いです。</li>
+<li><strong>キャンセルの取り消し</strong> — 誤登録した場合は取り消しができます（記録の削除＋残り回数1回の復元＋LINE への訂正メッセージ送信まで自動）。</li>
+<li><strong>報告書の取り消し</strong> — 生徒の紐付けミス等は報告書自体を取り消せます（訂正メッセージ送信＋公開URLの無効化。残り回数を戻すかは選択）。取り消し済みの報告書は修正して再送できます。</li>
+<li><strong>LINE 再送</strong> — 送信済みの報告書を再送するときは確認ダイアログが出ます。<strong>別の家庭に誤送信していないか</strong>をここで必ず確認してください。</li>
+</ul>
+</div>
+
+<div class="card" id="schedule">
+<h2><span class="num">5</span>スケジュール</h2>
+<ul>
+<li><strong>定例授業の登録</strong> — 生徒・曜日・開始時間を登録します（開始は15分刻み、授業時間は標準120分）。登録した定例は月をまたいで継続します。</li>
+<li><strong>稼働可能時間帯の設定</strong> — 自分が授業を受けられる時間帯を登録してください。新規生徒のマッチングに使われるので、<strong>常に最新に保つこと</strong>。</li>
+<li><strong>授業不可能日</strong> — 帰省・試験などで稼働できない日は登録しておきます。</li>
+<li><strong>マッチング表示</strong> — 保護者の希望時間帯が自分のスケジュールに重ねて表示されます（緑=一致、橙=どちらか片方のみ）。</li>
+<li>週間ビューと月間ビューを切り替えられます。</li>
+</ul>
+</div>
+
+<div class="card" id="zoom">
+<h2><span class="num">6</span>Zoom 連携（任意・推奨）</h2>
+<p>自分の Zoom アカウントを連携すると、授業の AI 要約と録画リンクが自動で edenteacher に取り込まれ、報告書に添付できるようになります。</p>
+<ol>
+<li>設定画面から Zoom アカウントを連携（Zoom のログイン画面で許可するだけ）。</li>
+<li>設定画面のガイドに従って Zoom 側の <strong>AI Companion（要約機能）を有効化</strong>。</li>
+<li>以後、授業が終わると要約が自動で届き、生徒にも自動で紐付きます（生徒名・定例スケジュールから推定）。</li>
+<li>録画リンクの保存はオプションで ON にできます。</li>
+</ol>
+<div class="callout ok">連携は任意ですが、報告書の質と書く速さが大きく変わるので推奨です。</div>
+</div>
+
+<div class="card" id="salary">
+<h2><span class="num">7</span>給与</h2>
+<ul>
+<li>給与ページで<strong>月ごとの給与が自動計算</strong>されます（授業1回=2時間×時給。報告書の授業日ベース）。</li>
+<li>交通費や手当などの<strong>調整項目</strong>は自分で追加できます（時間を入れると時給で自動計算。金額の直接入力も可）。</li>
+<li>月の授業がすべて終わったら<strong>「給与を提出」</strong>を押してください。月末2日前からダッシュボードにリマインダーが出ます。</li>
+</ul>
+<div class="callout warn">前月の給与が未提出のまま翌月になると、給与ページ以外が使えなくなります。<strong>月末の提出を忘れずに。</strong></div>
+</div>
+
+<div class="card" id="students">
+<h2><span class="num">8</span>生徒管理</h2>
+<ul>
+<li><strong>生徒詳細ページ</strong> — 基本情報・学年・残り回数・過去の報告書・授業動画がまとまっています。授業前の振り返りに使ってください。</li>
+<li><strong>生徒の追加</strong> — 先生も生徒を追加できます（担当は自分に固定）。追加時にコース（12回/24回）の確認モーダルが出ます。<strong>あとから変更できないので選び間違いに注意</strong>。</li>
+<li><strong>残り回数</strong> — 先生も編集できます。実態とズレていたら直してください。</li>
+<li><strong>コース更新</strong> — 残り0回の時点で継続が確定していれば自動で次コースに更新されます。</li>
+<li><strong>サブ講師</strong> — 他の先生の生徒にサブ講師として参加できます（ダッシュボードの参加ボタン）。サブ講師も報告書作成・生徒データ閲覧が可能です。</li>
+<li><strong>学年設定</strong> — 学年が未設定だと給与提出がブロックされます。生徒追加時に必ず設定を。</li>
+</ul>
+</div>
+
+<div class="card" id="edenquest">
+<h2><span class="num">9</span>EdenQuest 連携</h2>
+<ul>
+<li><strong>生徒詳細の EdenQuest カード</strong> — 担当生徒の直近7日の学習状況（EdenQuest での演習）が見られます。EdenQuest のアカウントが無くても見られます。</li>
+<li><strong>「EdenQuest を開く」カード</strong> — 先生ダッシュボードのカードから、自分用の EdenQuest 先生アカウント（閲覧専用）を発行できます。</li>
+</ul>
+<p>詳しくは別ガイド「<strong>EdenQuest の使い方（講師向け）</strong>」を読んでください。</p>
+</div>
+
+<div class="card" id="guide">
+<h2><span class="num">10</span>指導ガイド</h2>
+<p>ヘッダーの<strong>「📘 指導ガイド」</strong>ボタンから、講師向けドキュメントの一覧が開けます。</p>
+<ul>
+<li><strong>Eden の指導メソッド（授業の型）</strong> — 授業の考え方・教材の標準ルート・教科別の定石。<strong>新規講師はまずこれを読むこと。</strong></li>
+<li><strong>過去問対策フロー</strong> — 過去問を始める条件から直しのやり方まで。</li>
+<li>EdenQuest の使い方、過去問ライブの運営マニュアルもここに並んでいます。</li>
+</ul>
+</div>
+
+<div class="card" id="help">
+<h2><span class="num">11</span>困ったとき</h2>
+<ul>
+<li>操作で困ったら、まずこのガイドと指導ガイドの各ドキュメントを確認。</li>
+<li>解決しない場合・データがおかしい場合は<strong>管理者に連絡</strong>してください。自己判断で生徒データを大きく変更しないこと。</li>
+<li>誤って保護者に送ってしまった通知（報告書・キャンセル）は、放置せず取り消し機能を使うか管理者に相談してください。</li>
+</ul>
+</div>
+
+</main></div></body></html>

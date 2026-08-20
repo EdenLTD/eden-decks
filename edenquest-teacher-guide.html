@@ -1,0 +1,148 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+<title>EdenQuest の使い方 — 講師向けガイド</title>
+<meta name="description" content="学習アプリ EdenQuest の講師向け使い方ガイド（先生アカウント・生徒の進捗確認・授業での活用。2026-08-20）">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1b2733;--muted:#5d6b7a;--line:#e4e9ef;--bg:#f6f8fb;--card:#fff;--accent:#0b6fb6;--accent2:#e8f1fb;--warn:#b26a00;--warnbg:#fff6e5;--ok:#1f7a4d;--okbg:#e9f6ef}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",system-ui,sans-serif;line-height:1.85;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top .in{max-width:1100px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:15px;letter-spacing:.02em}.brand small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.wrap{max-width:1100px;margin:0 auto;padding:22px 18px 60px;display:grid;grid-template-columns:240px 1fr;gap:26px}
+aside{position:sticky;top:66px;align-self:start;max-height:calc(100vh - 80px);overflow:auto}
+.toc{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.toc li a{display:block;padding:6px 12px;color:var(--muted);text-decoration:none;font-size:13.5px;border-left:2px solid transparent;margin-left:-2px}
+.toc li a:hover{color:var(--accent);border-left-color:var(--accent);background:var(--accent2)}
+.intro{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin-bottom:18px}
+.intro h1{font-size:25px;margin:0 0 8px;letter-spacing:.01em}
+.intro p{margin:6px 0;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin:0 0 18px}
+.card h2{font-size:20px;margin:0 0 12px;display:flex;align-items:center;gap:10px}
+.card h2 .num{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;border-radius:8px;background:var(--accent);color:#fff;font-size:15px;font-weight:700}
+h3.sub{font-size:16px;margin:20px 0 6px;padding-left:10px;border-left:4px solid var(--accent)}
+.card ul,.card ol{padding-left:1.4em}.card li{margin:5px 0}.card ul ul{margin:4px 0 6px}
+.card li strong,.card p strong{background:linear-gradient(transparent 62%,#fff1a8 62%)}
+.callout{border-radius:10px;padding:12px 16px;margin:14px 0;font-size:14.5px}
+.callout.warn{background:var(--warnbg);border:1px solid #f0d9ab;color:var(--warn)}
+.callout.ok{background:var(--okbg);border:1px solid #bfe3cf;color:var(--ok)}
+.callout.info{background:var(--accent2);border:1px solid #c8ddf2;color:#0b5a94}
+code{background:#eef2f7;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:13.5px}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:14.5px}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left;vertical-align:top}
+th{background:var(--accent2);color:#0b5a94;font-weight:700}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}aside{position:static;max-height:none}}
+@media print{.top,aside{display:none}.wrap{grid-template-columns:1fr;padding:0}body{background:#fff}}
+</style></head><body>
+<div class="top"><div class="in"><div class="brand">EdenQuest の使い方<small>講師向けガイド（2026-08-20版）</small></div></div></div>
+<div class="wrap">
+<aside><ul class="toc">
+<li><a href="#about">1. EdenQuest とは</a></li>
+<li><a href="#account">2. 先生アカウントを作る</a></li>
+<li><a href="#viewonly">3. 閲覧専用の意味</a></li>
+<li><a href="#progress">4. 生徒の進捗を見る</a></li>
+<li><a href="#answers">5. 答えの表示</a></li>
+<li><a href="#features">6. 生徒が使う主な機能</a></li>
+<li><a href="#lesson">7. 授業での活用</a></li>
+<li><a href="#notes">8. 注意事項</a></li>
+</ul></aside>
+<main>
+
+<div class="intro">
+<h1>🎮 EdenQuest の使い方（講師向け）</h1>
+<p>EdenQuest は Eden の生徒（中学受験生）が家庭学習で使うゲーミフィケーション学習アプリです。算数・国語・理科・社会の演習を、ボス戦・ペット育成・デイリーチャレンジの形で毎日続けられるように作られています。</p>
+<p>講師は「生徒に何をやらせるか指示する」「進捗を確認してフォローする」の2つの関わり方をします。このガイドはその操作方法をまとめたものです。</p>
+</div>
+
+<div class="card" id="about">
+<h2><span class="num">1</span>EdenQuest とは</h2>
+<ul>
+<li>URL: <a href="https://edenquest.vercel.app" target="_blank" rel="noopener">https://edenquest.vercel.app</a>（生徒はスマホ・タブレット・PC どれでも使えます）</li>
+<li>利用できるのは<strong>対象コースの家庭</strong>です。担当生徒が使えるかどうか不明な場合は管理者に確認してください。</li>
+<li>問題を解くと XP・コインがもらえ、レベルアップ・ペット育成・称号につながる設計です。<strong>「勉強のごほうびループ」を回して家庭学習を習慣化する</strong>のが狙いです。</li>
+</ul>
+</div>
+
+<div class="card" id="account">
+<h2><span class="num">2</span>先生アカウントを作る</h2>
+<p>講師は生徒と同じアプリを<strong>先生アカウント（閲覧専用）</strong>で使えます。問題の中身や難易度を自分の目で確認するためのものです。作り方は2通り、どちらでも同じです。</p>
+<h3 class="sub">方法A: edenteacher から発行（推奨）</h3>
+<ol>
+<li>edenteacher の先生ダッシュボードにある<strong>「EdenQuest を開く」カード</strong>を押す。</li>
+<li>招待メールが届くので、パスワードを設定してログイン。</li>
+<li>すでにアカウントがある場合はそのまま開くだけです。</li>
+</ol>
+<h3 class="sub">方法B: EdenQuest のログイン画面から</h3>
+<ol>
+<li>EdenQuest のログイン画面でメールアドレスを入力。</li>
+<li>未登録の場合「先生セットアップ」に進むので、<strong>edenteacher と同じメールアドレス・パスワード</strong>を入力。</li>
+<li>edenteacher 側で本人確認が取れると、そのままアカウントが作られてログインできます。</li>
+</ol>
+<div class="callout info">方法Bで弾かれる場合は、edenteacher のアカウントがまだ無いか、パスワードが違います。先に edenteacher にログインできることを確認してください。</div>
+</div>
+
+<div class="card" id="viewonly">
+<h2><span class="num">3</span>「閲覧専用」の意味</h2>
+<p>先生アカウントは生徒と同じ画面で問題を解けますが、<strong>ゲーム要素には影響しません</strong>。</p>
+<ul>
+<li>XP・コイン・称号は<strong>増えません</strong>。</li>
+<li>ランキングにも<strong>載りません</strong>。</li>
+<li>チュートリアルやペット作成もスキップされます。</li>
+</ul>
+<div class="callout ok">つまり、<strong>いくら触っても生徒側のデータやランキングを汚さない</strong>ので、教材確認のために自由に問題を解いて構いません。</div>
+</div>
+
+<div class="card" id="progress">
+<h2><span class="num">4</span>生徒の進捗を見る</h2>
+<p>担当生徒の学習状況は <strong>edenteacher 側</strong>で確認します（EdenQuest のアカウントは不要です）。</p>
+<ul>
+<li>edenteacher の<strong>生徒詳細ページに EdenQuest カード</strong>があり、直近7日の学習状況が表示されます。</li>
+<li>授業の冒頭で「今週 EdenQuest やった？」の答え合わせに使えます。<strong>やっていない週が続く生徒は声かけ・保護者への共有を</strong>。</li>
+</ul>
+</div>
+
+<div class="card" id="answers">
+<h2><span class="num">5</span>答えの表示（先生専用機能）</h2>
+<ul>
+<li>EdenQuest の<strong>設定画面</strong>に、先生アカウントだけに表示される「<strong>先生用: ボス問題の答え表示</strong>」トグルがあります（初期状態は OFF）。</li>
+<li>ON にすると問題画面で正解を確認できます。授業中に生徒と同じ問題を見ながら解説するときに使ってください。</li>
+<li>生徒のアカウントにはこの機能はなく、正解が送られることもありません。</li>
+</ul>
+</div>
+
+<div class="card" id="features">
+<h2><span class="num">6</span>生徒が使う主な機能</h2>
+<table>
+<tr><th>機能</th><th>内容</th></tr>
+<tr><td><strong>冒険マップ</strong></td><td>単元別の演習（ボス問題）。算数・国語・理科・社会を単元ごとに攻略していくメインコンテンツ。</td></tr>
+<tr><td><strong>デイリーミッション</strong></td><td>毎日の課題。習慣化の柱なので「毎日デイリーだけはやる」を最低ラインの指示にしやすい。</td></tr>
+<tr><td><strong>デイリージオ</strong></td><td>日本地図に場所をピンで刺して距離で採点される地理チャレンジ（1日10問）。社会の地理感覚づくりに。</td></tr>
+<tr><td><strong>復習ノート</strong></td><td>間違えた問題の復習用カード。</td></tr>
+<tr><td><strong>ライブ</strong></td><td>過去問演習ライブなど、リアルタイム授業への入口。運営する側の手順は別ガイド「過去問ライブ 運営マニュアル」参照。</td></tr>
+<tr><td><strong>ペット・おみくじ・マイルーム</strong></td><td>コインで回すおみくじで装飾品を集め、ペットの着せ替えをする、モチベーション側の機能。</td></tr>
+<tr><td><strong>称号・ランキング</strong></td><td>学習量に応じたごほうび。競争が効くタイプの生徒に有効。</td></tr>
+</table>
+<div class="callout info">機能は随時追加されています。先生アカウントで実際に触って把握しておくのが一番早いです。</div>
+</div>
+
+<div class="card" id="lesson">
+<h2><span class="num">7</span>授業での活用</h2>
+<ul>
+<li><strong>宿題として単元を指示する</strong> — 授業で扱った単元を「冒険マップの◯◯をクリアしておいで」と指示する使い方が基本です。指示の出し方・レベル感は指導ガイドの「<strong>Eden の指導メソッド</strong>」を参照してください。</li>
+<li><strong>授業冒頭のチェック</strong> — edenteacher の EdenQuest カードで1週間の取り組みを確認 → 一言フィードバック。見てもらえていると分かると継続率が上がります。</li>
+<li><strong>報告書に書く</strong> — EdenQuest の取り組み状況は保護者の関心が高いので、授業報告書で触れると喜ばれます。</li>
+</ul>
+</div>
+
+<div class="card" id="notes">
+<h2><span class="num">8</span>注意事項</h2>
+<ul>
+<li>先生アカウントで生徒のアカウントにログインしない・パスワードを預からないこと。ログインで困っている家庭は管理者へ。</li>
+<li>生徒データがおかしい・アプリの不具合を見つけた場合は管理者に報告してください。</li>
+<li>答え表示トグルは授業用の機能です。<strong>正解の一覧やスクリーンショットを生徒・保護者に配らない</strong>でください（演習の意味がなくなります）。</li>
+</ul>
+</div>
+
+</main></div></body></html>
