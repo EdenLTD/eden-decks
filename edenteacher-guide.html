@@ -42,7 +42,7 @@ code{background:#eef2f7;border:1px solid var(--line);border-radius:5px;padding:1
 <li><a href="#report">3. 授業報告書を書く</a></li>
 <li><a href="#cancel">4. キャンセル・訂正</a></li>
 <li><a href="#schedule">5. スケジュール</a></li>
-<li><a href="#zoom">6. Zoom連携（任意）</a></li>
+<li><a href="#zoom">6. Zoom連携（今後の機能）</a></li>
 <li><a href="#salary">7. 給与</a></li>
 <li><a href="#students">8. 生徒管理</a></li>
 <li><a href="#edenquest">9. EdenQuest 連携</a></li>
@@ -72,7 +72,7 @@ code{background:#eef2f7;border:1px solid var(--line);border-radius:5px;padding:1
 <ul>
 <li><strong>担当生徒の一覧</strong> — 自分がメイン担当・サブ講師の生徒が並びます。カードから生徒詳細へ。</li>
 <li><strong>意思確認アラート</strong> — 残り回数が4回以下で継続の意思確認がまだの生徒はバナーで知らせます。保護者に継続の確認をして、結果を生徒詳細に反映してください。</li>
-<li><strong>報告書の書き忘れリマインド</strong> — 授業の Zoom 要約があるのに報告書が無い日はカードで知らせます（授業翌日の昼12時以降に表示、7日前まで遡り）。報告書を書けば自動で消えます。面談など報告書が不要な要約は「消す」で非表示にできます。</li>
+<li><strong>報告書の書き忘れリマインド</strong> — 授業の Zoom 要約があるのに報告書が無い日はカードで知らせます（授業翌日の昼12時以降に表示、7日前まで遡り）。報告書を書けば自動で消えます。面談など報告書が不要な要約は「消す」で非表示にできます。※Zoom 連携（今後の機能）が前提のため、当面は表示されません。</li>
 </ul>
 <div class="callout info">リマインドカードから報告書作成に進むと、<strong>授業日がその日の日付で引き継がれます</strong>。今日の日付で送ってしまう事故を防げるので、書き忘れ分はカードから書くのがおすすめです。</div>
 </div>
@@ -85,8 +85,8 @@ code{background:#eef2f7;border:1px solid var(--line);border-radius:5px;padding:1
 <li>ダッシュボードまたは生徒詳細から「報告書を作成」へ。</li>
 <li><strong>生徒と授業日を確認</strong>。タイトルは「日付・曜日・第◯回」が自動で入ります。</li>
 <li>本文をエディタで書く（見出し・箇条書き・太字が使えます）。書く内容の型は「指導メソッド」ガイド参照。</li>
-<li>Zoom 連携済みなら、その授業の<strong>AI要約</strong>と<strong>録画</strong>をピッカーで選んで添付できます（送信前に選び直し可能）。</li>
 <li>授業動画（YouTube）がある場合は動画を選択。</li>
+<li>（今後）Zoom 連携が使えるようになると、その授業の<strong>AI要約</strong>と<strong>録画</strong>をピッカーで選んで添付できるようになります → 「6. Zoom連携」参照。</li>
 <li>送信 → 保護者の LINE に通知が届き、ダッシュボードに戻ります。</li>
 </ol>
 <div class="callout warn"><strong>授業日はタイトル内の日付がすべての基準</strong>です。翌日以降に書くときは、タイトルの日付が「書いた日」ではなく<strong>実際の授業日</strong>になっているか必ず確認してください。給与計算・保護者への通知の両方に影響します。</div>
@@ -118,15 +118,15 @@ code{background:#eef2f7;border:1px solid var(--line);border-radius:5px;padding:1
 </div>
 
 <div class="card" id="zoom">
-<h2><span class="num">6</span>Zoom 連携（任意・推奨）</h2>
-<p>自分の Zoom アカウントを連携すると、授業の AI 要約と録画リンクが自動で edenteacher に取り込まれ、報告書に添付できるようになります。</p>
+<h2><span class="num">6</span>Zoom 連携（今後の機能・準備中）</h2>
+<p>自分の Zoom アカウントを連携すると、授業の AI 要約と録画リンクが自動で edenteacher に取り込まれ、報告書に添付できるようになる機能です。</p>
+<div class="callout warn"><strong>現在は準備中で、講師の皆さんはまだ利用できません。</strong>利用できるようになったら改めて案内します。それまで報告書は通常どおり手書きで作成してください。</div>
+<p>利用開始後の流れ（参考）:</p>
 <ol>
 <li>設定画面から Zoom アカウントを連携（Zoom のログイン画面で許可するだけ）。</li>
 <li>設定画面のガイドに従って Zoom 側の <strong>AI Companion（要約機能）を有効化</strong>。</li>
-<li>以後、授業が終わると要約が自動で届き、生徒にも自動で紐付きます（生徒名・定例スケジュールから推定）。</li>
-<li>録画リンクの保存はオプションで ON にできます。</li>
+<li>以後、授業が終わると要約が自動で届き、生徒にも自動で紐付きます。録画リンクの保存はオプションで ON にできます。</li>
 </ol>
-<div class="callout ok">連携は任意ですが、報告書の質と書く速さが大きく変わるので推奨です。</div>
 </div>
 
 <div class="card" id="salary">
