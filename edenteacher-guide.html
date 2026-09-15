@@ -1,7 +1,7 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
 <title>edenteacher の使い方 — 講師向け操作ガイド</title>
-<meta name="description" content="家庭教師Eden の授業管理システム edenteacher の講師向け操作ガイド（新規講師研修用・2026-08-20）">
+<meta name="description" content="家庭教師Eden の授業管理システム edenteacher の講師向け操作ガイド（新規講師研修用・2026-09-16）">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#1b2733;--muted:#5d6b7a;--line:#e4e9ef;--bg:#f6f8fb;--card:#fff;--accent:#0b6fb6;--accent2:#e8f1fb;--warn:#b26a00;--warnbg:#fff6e5;--ok:#1f7a4d;--okbg:#e9f6ef}
@@ -31,10 +31,11 @@ h3.sub{font-size:16px;margin:20px 0 6px;padding-left:10px;border-left:4px solid 
 .callout.info{background:var(--accent2);border:1px solid #c8ddf2;color:#0b5a94}
 .tag{display:inline-block;padding:1px 9px;border-radius:999px;background:var(--accent2);color:var(--accent);font-size:12.5px;font-weight:700;vertical-align:middle}
 code{background:#eef2f7;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:13.5px}
+figure.shot{margin:14px 0 8px}figure.shot img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.06);background:#fff}figure.shot.narrow img{max-width:560px}figure.shot.phone img{max-width:360px}figure.shot figcaption{margin-top:6px;font-size:13px;color:var(--muted)}
 @media(max-width:860px){.wrap{grid-template-columns:1fr}aside{position:static;max-height:none}}
 @media print{.top,aside{display:none}.wrap{grid-template-columns:1fr;padding:0}body{background:#fff}}
 </style></head><body>
-<div class="top"><div class="in"><div class="brand">edenteacher の使い方<small>家庭教師Eden 講師向け操作ガイド（2026-08-20版）</small></div></div></div>
+<div class="top"><div class="in"><div class="brand">edenteacher の使い方<small>家庭教師Eden 講師向け操作ガイド（2026-09-16版）</small></div></div></div>
 <div class="wrap">
 <aside><ul class="toc">
 <li><a href="#video">0. 解説動画（約18分）</a></li>
@@ -56,6 +57,7 @@ code{background:#eef2f7;border:1px solid var(--line);border-radius:5px;padding:1
 <h1>🖥️ edenteacher の使い方</h1>
 <p>edenteacher は家庭教師Eden の授業管理システムです。授業報告書の作成・LINE送信、スケジュール管理、給与計算までここで完結します。このガイドは新規講師の研修用に、講師が日常的に使う機能を順に説明します。</p>
 <p>指導の中身（授業の型・過去問対策）は別ガイド「Eden の指導メソッド」を読んでください。どちらもアプリのヘッダー「📘 指導ガイド」から開けます。</p>
+<p>各章の画面写真は 2026年9月時点のものです。写っている生徒名は研修用の例です。</p>
 </div>
 
 <div class="card" id="video">
@@ -80,12 +82,17 @@ code{background:#eef2f7;border:1px solid var(--line);border-radius:5px;padding:1
 <div class="card" id="dashboard">
 <h2><span class="num">2</span>ダッシュボード</h2>
 <p>ログイン直後の画面。日々の起点になります。</p>
+<figure class="shot"><img src="https://edenteacher.vercel.app/onboarding/dashboard-students.webp" width="1171" height="646" loading="lazy" alt="ダッシュボード。上に大きな「報告書を作成」ボタン、EdenQuest カード、担当生徒のカード"><figcaption>ダッシュボード。上の大きな「報告書を作成」から報告書へ。「担当生徒」の右の「新規生徒を追加」で自分の担当生徒を登録できます（2026-09 にボタンを大きくしました）。</figcaption></figure>
+<figure class="shot"><img src="https://edenteacher.vercel.app/onboarding/account-photo.webp" width="1171" height="133" loading="lazy" alt="ダッシュボード上部のプロフィールカード"><figcaption>ダッシュボード上部のプロフィールカード。写真をクリックすると変更できます。</figcaption></figure>
 <ul>
 <li><strong>担当生徒の一覧</strong> — 自分がメイン担当・サブ講師の生徒が並びます。カードから生徒詳細へ。</li>
-<li><strong>意思確認アラート</strong> — 残り回数が4回以下で継続の意思確認がまだの生徒はバナーで知らせます。保護者に継続の確認をして、結果を生徒詳細に反映してください。</li>
+<li><strong>新規生徒を追加</strong> — 担当生徒の右のボタンから、自分の担当として生徒を登録できます（運営から依頼があったときだけ。コースはあとから変更できません）。</li>
+<li><strong>意思確認アラート</strong> — 残り回数が4回以下で継続の意思確認がまだの生徒はバナーで知らせます。継続の確認は<strong>運営が保護者の LINE グループで行います</strong>（先生から切り出す必要はありません）。継続か退会かが決まったら、生徒詳細の「継続」「退会」ボタンで更新してください。</li>
+<li><strong>サブ講師として参加</strong> — ダッシュボード最下部のボタンから、他の先生の生徒に代講・サブとして入れます。</li>
 <li><strong>報告書の書き忘れリマインド</strong> — 授業の Zoom 要約があるのに報告書が無い日はカードで知らせます（授業翌日の昼12時以降に表示、7日前まで遡り）。報告書を書けば自動で消えます。面談など報告書が不要な要約は「消す」で非表示にできます。※Zoom 連携（今後の機能）が前提のため、当面は表示されません。</li>
 </ul>
 <div class="callout info">リマインドカードから報告書作成に進むと、<strong>授業日がその日の日付で引き継がれます</strong>。今日の日付で送ってしまう事故を防げるので、書き忘れ分はカードから書くのがおすすめです。</div>
+<figure class="shot"><img src="https://edenteacher.vercel.app/onboarding/dashboard-sub-teacher.webp" width="1172" height="257" loading="lazy" alt="ダッシュボード最下部の「サブ講師として生徒に参加」ボタン"><figcaption>ダッシュボード最下部の「サブ講師として生徒に参加」。代講で他の先生の生徒に入るときに使います。</figcaption></figure>
 </div>
 
 <div class="card" id="report">
@@ -94,38 +101,49 @@ code{background:#eef2f7;border:1px solid var(--line);border-radius:5px;padding:1
 <h3 class="sub">手順</h3>
 <ol>
 <li>ダッシュボードまたは生徒詳細から「報告書を作成」へ。</li>
-<li><strong>生徒と授業日を確認</strong>。タイトルは「日付・曜日・第◯回」が自動で入ります。</li>
+<li><strong>生徒と授業日を確認</strong>。タイトルは「日付・曜日・第◯回」が自動で入ります。生徒が一覧に無いときは、選択欄の横の「新規生徒を追加」で先に生徒を作成してください（作成後はこのページに戻ります）。</li>
 <li>本文をエディタで書く（見出し・箇条書き・太字が使えます）。書く内容の型は「指導メソッド」ガイド参照。</li>
-<li>授業動画（YouTube）がある場合は動画を選択。</li>
+<li>授業動画（YouTube 限定公開）の URL を貼る。<strong>毎回必須</strong>です（録画に失敗したときだけ「録画なし」にチェック）。</li>
+<li><strong>次回授業</strong>を選ぶ（必須・初期は未選択）。「予定どおり」「別の日時」「別の先生に振替」「調整予定」のいずれか。ここで選んだ内容がそのまま保護者のダッシュボードと LINE に出ます。</li>
 <li>（今後）Zoom 連携が使えるようになると、その授業の<strong>AI要約</strong>と<strong>録画</strong>をピッカーで選んで添付できるようになります → 「6. Zoom連携」参照。</li>
 <li>送信 → 保護者の LINE に通知が届き、ダッシュボードに戻ります。</li>
 </ol>
+<figure class="shot narrow"><img src="https://edenteacher.vercel.app/onboarding/report-form-top.webp" width="676" height="258" loading="lazy" alt="報告書作成フォームの上部。生徒の選択、授業日、回目、自動生成されたタイトル"><figcaption>フォーム上部。生徒を選ぶと「回目」が自動で入り、タイトルも自動生成されます（現在は生徒選択の右に「新規生徒を追加」ボタンがあります）。</figcaption></figure>
+<figure class="shot narrow"><img src="https://edenteacher.vercel.app/onboarding/report-form-video.webp" width="676" height="274" loading="lazy" alt="報告書フォームの授業動画欄。YouTube 動画を選択ボタン、手動入力の URL 欄、録画なしのチェックボックス、提出に必要な項目の一覧"><figcaption>授業動画欄。YouTube の URL を「手動入力」に貼ります。下の「提出に必要な項目」が全部チェックになると送信できます。</figcaption></figure>
+<figure class="shot narrow"><img src="https://edenteacher.vercel.app/onboarding/report-submit.webp" width="676" height="140" loading="lazy" alt="報告書を作成ボタンの上に残り回数が1回消費される注意"><figcaption>送信ボタンの上に、残り回数がいくつからいくつになるかが出ます。送信前に確認してください。</figcaption></figure>
 <div class="callout warn"><strong>授業日はタイトル内の日付がすべての基準</strong>です。翌日以降に書くときは、タイトルの日付が「書いた日」ではなく<strong>実際の授業日</strong>になっているか必ず確認してください。給与計算・保護者への通知の両方に影響します。</div>
 <ul>
 <li>送信後もタイトルの日付は編集で直せます（保護者が見る公開ページは即反映。届いた LINE の文言は古いままなので、必要なら再送）。</li>
 <li>報告書は公開 URL で保護者がいつでも閲覧できます。</li>
+<li><strong>回目の警告</strong>: 入力した回数が残り回数と合わないときに赤く出ます。生徒詳細で残り回数を確認してください。</li>
 </ul>
+<figure class="shot narrow"><img src="https://edenteacher.vercel.app/onboarding/report-count-warning.webp" width="676" height="95" loading="lazy" alt="「回数が一致しません」の赤い警告"><figcaption>回目の警告の例。入力した回目と、残り回数から計算した回目が違うと赤く出ます。</figcaption></figure>
+<figure class="shot phone"><img src="https://edenteacher.vercel.app/onboarding/line-report-flex.webp" width="1080" height="1614" loading="lazy" alt="保護者の LINE グループに届いた報告書の通知"><figcaption>送信すると保護者の LINE グループにこの形で届きます（タイトル・概要の抜粋・残り回数・「報告書を見る」ボタン）。</figcaption></figure>
 </div>
 
 <div class="card" id="cancel">
 <h2><span class="num">4</span>キャンセル・訂正</h2>
 <ul>
-<li><strong>当日キャンセル</strong> — キャンセル報告書を作成すると保護者に通知されます。規定により残り回数は消化扱いです。</li>
+<li><strong>当日キャンセル</strong> — 報告書作成ページの下部（または生徒詳細）から、保護者からの連絡のスクリーンショットを付けて<strong>その日のうちに</strong>登録します。保護者に通知され、規定により残り回数は消化扱いです。</li>
 <li><strong>キャンセルの取り消し</strong> — 誤登録した場合は取り消しができます（記録の削除＋残り回数1回の復元＋LINE への訂正メッセージ送信まで自動）。</li>
 <li><strong>報告書の取り消し</strong> — 生徒の紐付けミス等は報告書自体を取り消せます（訂正メッセージ送信＋公開URLの無効化。残り回数を戻すかは選択）。取り消し済みの報告書は修正して再送できます。</li>
 <li><strong>LINE 再送</strong> — 送信済みの報告書を再送するときは確認ダイアログが出ます。<strong>別の家庭に誤送信していないか</strong>をここで必ず確認してください。</li>
 </ul>
+<figure class="shot narrow"><img src="https://edenteacher.vercel.app/onboarding/cancel-form.webp" width="676" height="324" loading="lazy" alt="当日キャンセル登録フォーム。生徒の選択、キャンセル証拠スクリーンショットのファイル選択、キャンセル登録ボタン"><figcaption>報告書作成ページの下部にある「当日キャンセル登録」。保護者からの連絡のスクリーンショットを付けて登録します。</figcaption></figure>
+<figure class="shot"><img src="https://edenteacher.vercel.app/onboarding/report-card-actions.webp" width="1172" height="504" loading="lazy" alt="生徒詳細で報告書カードを開いた状態。編集・LINE 再送・取り消し・手動コピーのボタン"><figcaption>生徒詳細で報告書カードを開くと、下に「編集」「LINE 再送」「取り消し」が出ます。訂正・再送・取り消しはここから。</figcaption></figure>
 </div>
 
 <div class="card" id="schedule">
 <h2><span class="num">5</span>スケジュール</h2>
 <ul>
-<li><strong>定例授業の登録</strong> — 生徒・曜日・開始時間を登録します（開始は15分刻み、授業時間は標準120分）。登録した定例は月をまたいで継続します。</li>
-<li><strong>稼働可能時間帯の設定</strong> — 自分が授業を受けられる時間帯を登録してください。新規生徒のマッチングに使われるので、<strong>常に最新に保つこと</strong>。</li>
-<li><strong>授業不可能日</strong> — 帰省・試験などで稼働できない日は登録しておきます。</li>
-<li><strong>マッチング表示</strong> — 保護者の希望時間帯が自分のスケジュールに重ねて表示されます（緑=一致、橙=どちらか片方のみ）。</li>
-<li>週間ビューと月間ビューを切り替えられます。</li>
+<li><strong>毎週必ず空けられる時間帯</strong> — 週間グリッドで開始時刻をクリックすると 2時間（1コマ）が入ります（もう一度クリックで消えます）。平日は 15:00〜22:00、土日はライブ講座 11:00〜14:00 を除く 8:00〜22:00 から選べます。新規生徒の担当を決めるときに運営がここを見るので、<strong>常に最新に保つこと</strong>。休みなど一時的な予定はここには入れません。</li>
 </ul>
+<figure class="shot"><img src="https://edenteacher.vercel.app/onboarding/schedule-grid.webp" width="1188" height="644" loading="lazy" alt="スケジュールページの週間グリッド。火曜 19:00 をクリックして 2 時間が青く入った状態"><figcaption>週間グリッド。火曜 19:00 をクリックすると 19:00〜21:00 の 2 時間（青）が入ります。入れ終わったら右上の「保存」を押してください。</figcaption></figure>
+<ul>
+<li><strong>定例授業の登録</strong> — 決まった曜日・時刻は、スケジュールページ下部の「定例授業」に生徒・曜日・開始時刻を登録します。登録した定例は月をまたいで継続します。</li>
+<li><strong>授業予定</strong> — 生徒ごとの授業予定は定例から 6 週間先まで自動で入ります。休み・振替・今月だけ週2、といった変更は「授業予定」ページで日時を動かす・取り消す・足すで直せます。</li>
+</ul>
+<figure class="shot"><img src="https://edenteacher.vercel.app/onboarding/schedule-weekly-lessons.webp" width="1188" height="210" loading="lazy" alt="スケジュールページ下部の「定例授業」。曜日ごとに生徒名と時刻のカード"><figcaption>スケジュールページ下部の「定例授業」。「+ 追加」で生徒・曜日・時刻を登録します。</figcaption></figure>
 </div>
 
 <div class="card" id="zoom">
@@ -154,12 +172,15 @@ code{background:#eef2f7;border:1px solid var(--line);border-radius:5px;padding:1
 <h2><span class="num">8</span>生徒管理</h2>
 <ul>
 <li><strong>生徒詳細ページ</strong> — 基本情報・学年・残り回数・過去の報告書・授業動画がまとまっています。授業前の振り返りに使ってください。</li>
-<li><strong>生徒の追加</strong> — 先生も生徒を追加できます（担当は自分に固定）。追加時にコース（12回/24回）の確認モーダルが出ます。<strong>あとから変更できないので選び間違いに注意</strong>。</li>
+<li><strong>生徒の追加</strong> — 先生も生徒を追加できます（担当は自分に固定）。ダッシュボードの「新規生徒を追加」か、報告書作成ページの生徒選択の横のボタンから。追加時にコース（12回/24回）の確認モーダルが出ます。<strong>あとから変更できないので選び間違いに注意</strong>。</li>
 <li><strong>残り回数</strong> — 先生も編集できます。実態とズレていたら直してください。</li>
 <li><strong>コース更新</strong> — 残り0回の時点で継続が確定していれば自動で次コースに更新されます。</li>
 <li><strong>サブ講師</strong> — 他の先生の生徒にサブ講師として参加できます（ダッシュボードの参加ボタン）。サブ講師も報告書作成・生徒データ閲覧が可能です。</li>
 <li><strong>学年設定</strong> — 学年が未設定だと給与提出がブロックされます。生徒追加時に必ず設定を。</li>
 </ul>
+<figure class="shot"><img src="https://edenteacher.vercel.app/onboarding/student-detail.webp" width="1145" height="772" loading="lazy" alt="生徒詳細ページの上部。コース・学年・残り回数・意思確認・担当講師・Zoom 表示名・保護者アカウント・LINE グループ"><figcaption>生徒詳細ページの上部。学年・残り回数・意思確認・Zoom 表示名・LINE グループをここで扱います。</figcaption></figure>
+<figure class="shot"><img src="https://edenteacher.vercel.app/onboarding/student-detail-status.webp" width="1145" height="168" loading="lazy" alt="生徒詳細の学年セレクト、残り回数の編集ボタン、意思確認の継続・退会ボタン"><figcaption>学年はプルダウンで設定。残り回数は「編集」で直せます。継続・退会が決まったら「継続」か「退会」を押して更新します。</figcaption></figure>
+<figure class="shot phone"><img src="https://edenteacher.vercel.app/onboarding/student-new.webp" width="528" height="950" loading="lazy" alt="新規生徒追加フォーム。生徒名・コース・学年・担当講師・顧客（保護者）・LINE グループ・メモ"><figcaption>新規生徒追加フォーム。LINE グループは「学習管理」公式アカウントを保護者のグループに招待したあとに一覧へ出ます。</figcaption></figure>
 </div>
 
 <div class="card" id="edenquest">
@@ -168,12 +189,16 @@ code{background:#eef2f7;border:1px solid var(--line);border-radius:5px;padding:1
 <li><strong>生徒詳細の EdenQuest カード</strong> — 担当生徒の直近7日の学習状況（EdenQuest での演習）が見られます。EdenQuest のアカウントが無くても見られます。</li>
 <li><strong>「EdenQuest を開く」カード</strong> — 先生ダッシュボードのカードから、自分用の EdenQuest 先生アカウント（閲覧専用）を発行できます。</li>
 </ul>
+<figure class="shot"><img src="https://edenteacher.vercel.app/onboarding/edenquest-card.webp" width="1171" height="87" loading="lazy" alt="ダッシュボードの「EdenQuest（学習アプリ）を開く」カード"><figcaption>ダッシュボードの「EdenQuest（学習アプリ）を開く」カード。初回クリックで先生アカウント（閲覧専用）が発行されます。</figcaption></figure>
+<figure class="shot"><img src="https://edenteacher.vercel.app/onboarding/student-edenquest.webp" width="1172" height="242" loading="lazy" alt="生徒詳細の「EdenQuest 学習状況」カード。直近 7 日間のグラフと累計クリア数"><figcaption>生徒詳細の「EdenQuest 学習状況」カード。直近 7 日間の学習量と累計クリア数が見られます。</figcaption></figure>
 <p>詳しくは別ガイド「<strong>EdenQuest の使い方（講師向け）</strong>」を読んでください。</p>
 </div>
 
 <div class="card" id="guide">
 <h2><span class="num">10</span>指導ガイド</h2>
 <p>ヘッダーの<strong>「📘 指導ガイド」</strong>ボタンから、講師向けドキュメントの一覧が開けます。</p>
+<figure class="shot"><img src="https://edenteacher.vercel.app/onboarding/header-guide-button.webp" width="1249" height="69" loading="lazy" alt="画面上部のヘッダー。右寄りに「指導ガイド」ボタン"><figcaption>画面上部のヘッダー右寄りにある「指導ガイド」ボタン。</figcaption></figure>
+<figure class="shot"><img src="https://edenteacher.vercel.app/onboarding/teaching-guide-list.webp" width="1187" height="760" loading="lazy" alt="指導ガイド一覧。操作ガイド・指導メソッド・過去問対策フロー・EdenQuest の使い方・先生用教材フォルダの 5 枚のカード"><figcaption>指導ガイド一覧。このガイド・指導メソッド・過去問対策フロー・EdenQuest の使い方・先生用教材フォルダが並びます。</figcaption></figure>
 <ul>
 <li><strong>Eden の指導メソッド（授業の型）</strong> — 授業の考え方・教材の標準ルート・教科別の定石。<strong>新規講師はまずこれを読むこと。</strong></li>
 <li><strong>過去問対策フロー</strong> — 過去問を始める条件から直しのやり方まで。</li>
