@@ -1,7 +1,7 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
 <title>edenteacher の使い方 — 講師向け操作ガイド</title>
-<meta name="description" content="家庭教師Eden の授業管理システム edenteacher の講師向け操作ガイド（新規講師研修用・2026-09-16）">
+<meta name="description" content="家庭教師Eden の授業管理システム edenteacher の講師向け操作ガイド（新規講師研修用・2026-09-19）">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#1b2733;--muted:#5d6b7a;--line:#e4e9ef;--bg:#f6f8fb;--card:#fff;--accent:#0b6fb6;--accent2:#e8f1fb;--warn:#b26a00;--warnbg:#fff6e5;--ok:#1f7a4d;--okbg:#e9f6ef}
@@ -35,7 +35,7 @@ figure.shot{margin:14px 0 8px}figure.shot img{display:block;width:100%;height:au
 @media(max-width:860px){.wrap{grid-template-columns:1fr}aside{position:static;max-height:none}}
 @media print{.top,aside{display:none}.wrap{grid-template-columns:1fr;padding:0}body{background:#fff}}
 </style></head><body>
-<div class="top"><div class="in"><div class="brand">edenteacher の使い方<small>家庭教師Eden 講師向け操作ガイド（2026-09-16版）</small></div></div></div>
+<div class="top"><div class="in"><div class="brand">edenteacher の使い方<small>家庭教師Eden 講師向け操作ガイド（2026-09-19版）</small></div></div></div>
 <div class="wrap">
 <aside><ul class="toc">
 <li><a href="#video">0. 解説動画（約18分）</a></li>
@@ -60,6 +60,8 @@ figure.shot{margin:14px 0 8px}figure.shot img{display:block;width:100%;height:au
 <p>各章の画面写真は 2026年9月時点のものです。写っている生徒名は研修用の例です。</p>
 </div>
 
+<div class="callout info"><strong>このページは「全体像を動画と画面写真でつかむ」ための資料です。</strong>手順とルールの最新版は、アプリ内の <a href="https://edenteacher.vercel.app/dashboard/teacher-onboarding" target="_blank" rel="noopener">はじめてガイド（講師版）</a> と、状況から引ける <a href="https://edenteacher.vercel.app/dashboard/teacher-onboarding/situations" target="_blank" rel="noopener">こんなときは（対応パターン）</a> にまとめています。内容が食い違っていたら、アプリ内のガイドが正です。</div>
+
 <div class="card" id="video">
 <h2><span class="num">0</span>解説動画（約18分）</h2>
 <p>まずはこの動画で全体像をつかんでください。スライド＋実際の画面で、報告書の提出と給与の提出を中心に説明しています。</p>
@@ -73,7 +75,7 @@ figure.shot{margin:14px 0 8px}figure.shot img{display:block;width:100%;height:au
 <div class="card" id="start">
 <h2><span class="num">1</span>はじめに・ログイン</h2>
 <ul>
-<li>アカウントは<strong>管理者が発行</strong>します。案内されたメールアドレスとパスワードでログインしてください。</li>
+<li>アカウントは<strong>自分で登録</strong>します。講師 LINE グループで案内された登録リンクを開き、「先生」を選んでメールアドレスとパスワードを登録してください（管理者が発行して案内する場合もあります）。</li>
 <li>URL: <a href="https://edenteacher.vercel.app" target="_blank" rel="noopener">https://edenteacher.vercel.app</a></li>
 <li>スマホでも使えますが、報告書作成は PC 推奨です。</li>
 </ul>
@@ -104,7 +106,7 @@ figure.shot{margin:14px 0 8px}figure.shot img{display:block;width:100%;height:au
 <li><strong>生徒と授業日を確認</strong>。タイトルは「日付・曜日・第◯回」が自動で入ります。生徒が一覧に無いときは、選択欄の横の「新規生徒を追加」で先に生徒を作成してください（作成後はこのページに戻ります）。</li>
 <li>本文をエディタで書く（見出し・箇条書き・太字が使えます）。書く内容の型は「指導メソッド」ガイド参照。</li>
 <li>授業動画（YouTube 限定公開）の URL を貼る。<strong>毎回必須</strong>です（録画に失敗したときだけ「録画なし」にチェック）。</li>
-<li><strong>次回授業</strong>を選ぶ（必須・初期は未選択）。「予定どおり」「別の日時」「別の先生に振替」「調整予定」のいずれか。ここで選んだ内容がそのまま保護者のダッシュボードと LINE に出ます。</li>
+<li><strong>次回授業</strong>を選ぶ（必須・初期は未選択）。「定期の予定から選ぶ」「次回だけ別の日時」「別の先生に振替」「調整予定」「今回で終了」のいずれか。「今回で終了」は助っ人で入った回や担当を外れる時だけ選びます（自分の定例が止まり、今後の予定が取り消されます）。ここで選んだ内容がそのまま保護者のダッシュボードと LINE に出ます。</li>
 <li>（今後）Zoom 連携が使えるようになると、その授業の<strong>AI要約</strong>と<strong>録画</strong>をピッカーで選んで添付できるようになります → 「6. Zoom連携」参照。</li>
 <li>送信 → 保護者の LINE に通知が届き、ダッシュボードに戻ります。</li>
 </ol>
