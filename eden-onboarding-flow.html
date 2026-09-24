@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="description" content="家庭教師Eden の初回面談から授業開始までの業務フロー（全体図と機能別の詳細図）">
+<title>Eden 入会から授業開始まで</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --surface-2: #eef0f3;
+    --border: #d9dee4;
+    --border-strong: #b9c1cb;
+    --text: #1b2430;
+    --text-muted: #57626f;
+    --text-faint: #8994a1;
+
+    --accent: #0d6e63;
+    --accent-contrast: #ffffff;
+    --accent-soft: #e1f1ee;
+
+    --lane-parent: #2454c7;
+    --lane-parent-bg: #e8eefb;
+    --lane-ops: #0d6e63;
+    --lane-ops-bg: #e1f1ee;
+    --lane-system: #6248b5;
+    --lane-system-bg: #ece7f8;
+    --lane-teacher: #b5650a;
+    --lane-teacher-bg: #f7ead6;
+
+    --status-prod-bg: #e3f4ec;
+    --status-prod-fg: #0c6b3f;
+    --status-prod-border: #a6ddbd;
+
+    --status-pending-bg: #edeff3;
+    --status-pending-fg: #4c5763;
+    --status-pending-border: #d1d7de;
+
+    --manual-bg: #fdeee0;
+    --manual-fg: #9a4a08;
+    --manual-border: #f0c79a;
+
+    --line-ops: #b3261e;
+    --line-test: #5b6672;
+    --line-teacher: #1d4ed8;
+    --line-family: #127a3e;
+  }
+
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 16px 60px;
+  }
+
+  /* ---------- header ---------- */
+  .hero { padding: 4px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 22px; }
+  .kicker {
+    margin: 0 0 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--accent);
+  }
+  h1 {
+    margin: 0 0 10px;
+    font-size: clamp(19px, 3.4vw, 25px);
+    font-weight: 700;
+    letter-spacing: -.01em;
+  }
+  .lede { margin: 0; max-width: 74ch; color: var(--text-muted); font-size: 13.5px; }
+  .lede strong { color: var(--text); }
+
+  /* ---------- overview ---------- */
+  .overview-title { margin: 0 0 12px; font-size: 15px; font-weight: 700; }
+  .overview-flow {
+    display: flex;
+    align-items: stretch;
+    gap: 3px;
+    overflow-x: auto;
+    padding: 6px 2px 10px;
+    margin-bottom: 6px;
+  }
+  .ov-card {
+    flex: 1 1 118px;
+    min-width: 112px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 10px 11px;
+    position: relative;
+  }
+  .ov-num {
+    position: absolute;
+    top: -9px; left: -9px;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--accent-contrast);
+    font-size: 10px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ov-chips { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 6px; }
+  .ov-role {
+    font-size: 10px; font-weight: 700;
+    padding: 1px 6px; border-radius: 999px;
+    background: var(--surface-2); color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .ov-card h3 { margin: 0 0 3px; font-size: 12.5px; font-weight: 700; }
+  .ov-card p { margin: 0; font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+
+  .ov-auto {
+    margin-top: 8px;
+    padding: 7px 8px 7px;
+    border-radius: 6px;
+    background: var(--status-prod-bg);
+    border: 1px solid var(--status-prod-border);
+  }
+  .ov-auto-label { display: block; font-size: 10px; font-weight: 700; color: var(--status-prod-fg); margin-bottom: 3px; letter-spacing: .02em; }
+  .ov-auto ul { margin: 0; padding-left: 14px; }
+  .ov-auto li { font-size: 10.5px; line-height: 1.5; color: var(--text); }
+  .ov-auto .tag-prep { font-size: 9.5px; padding: 0 6px; margin-left: 2px; }
+  .ov-auto-none { margin-top: 8px; font-size: 10.5px; color: var(--text-faint); }
+  .ov-arrow {
+    flex: 0 0 auto;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-faint);
+    font-size: 16px;
+    width: 14px;
+  }
+  @media (max-width: 760px) {
+    .overview-flow { flex-direction: column; overflow-x: visible; }
+    .ov-arrow { transform: rotate(90deg); margin: 1px 0; }
+    .ov-card { min-width: 0; }
+  }
+
+  .overview-summary {
+    background: var(--accent-soft);
+    border: 1px solid var(--status-prod-border);
+    border-radius: 8px;
+    padding: 13px 16px;
+    margin: 6px 0 30px;
+  }
+  .overview-summary ul { margin: 0; padding-left: 18px; }
+  .overview-summary li { font-size: 12.5px; color: var(--text); margin-bottom: 5px; }
+  .overview-summary li:last-child { margin-bottom: 0; }
+
+  /* ---------- tags (自動 / 人の手 / 準備中) ---------- */
+  .tag-auto, .tag-manual, .tag-prep {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .tag-auto { background: var(--status-prod-bg); color: var(--status-prod-fg); border-color: var(--status-prod-border); }
+  .tag-manual { background: var(--manual-bg); color: var(--manual-fg); border-color: var(--manual-border); }
+  .tag-prep { background: var(--status-pending-bg); color: var(--status-pending-fg); border-color: var(--status-pending-border); }
+
+  /* ---------- legend ---------- */
+  .legend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .legend-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .legend-box h2 {
+    margin: 0 0 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-faint);
+    letter-spacing: .03em;
+  }
+  .legend-box ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+  .legend-box li { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--text-muted); flex-wrap: wrap; }
+  .legend-box li span.count { color: var(--text-faint); }
+  .line-legend .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; display: inline-block; }
+  .line-legend .dot[data-line="ops"] { background: var(--line-ops); }
+  .line-legend .dot[data-line="test"] { background: var(--line-test); }
+  .line-legend .dot[data-line="teacher"] { background: var(--line-teacher); }
+  .line-legend .dot[data-line="family"] { background: var(--line-family); }
+  .line-legend li b { color: var(--text); font-weight: 600; }
+
+  .line-tag { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; color: var(--text-muted); }
+  .line-tag .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  .line-tag .dot[data-line="ops"] { background: var(--line-ops); }
+  .line-tag .dot[data-line="test"] { background: var(--line-test); }
+  .line-tag .dot[data-line="teacher"] { background: var(--line-teacher); }
+  .line-tag .dot[data-line="family"] { background: var(--line-family); }
+
+  /* ---------- section headings ---------- */
+  .section-heading { display: flex; align-items: center; gap: 10px; margin: 30px 0 4px; }
+  .section-heading:first-of-type { margin-top: 4px; }
+  .section-letter {
+    width: 26px; height: 26px; border-radius: 6px;
+    background: var(--accent); color: var(--accent-contrast);
+    font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    flex: none;
+  }
+  .section-heading h2 { margin: 0; font-size: 15px; font-weight: 700; }
+
+  /* ---------- diagram shell ---------- */
+  .diagram-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    padding: 6px 0 4px;
+  }
+  .flow-diagram { padding: 10px 18px 18px; }
+
+  .lanes-header {
+    display: grid;
+    grid-template-columns: 40px repeat(4, minmax(190px, 1fr));
+    gap: 10px 16px;
+    padding: 0 0 10px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .lanes-header [data-lane] {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 6px;
+    text-align: center;
+  }
+  .lanes-header [data-lane="parent"] { color: var(--lane-parent); background: var(--lane-parent-bg); }
+  .lanes-header [data-lane="ops"] { color: var(--lane-ops); background: var(--lane-ops-bg); }
+  .lanes-header [data-lane="system"] { color: var(--lane-system); background: var(--lane-system-bg); }
+  .lanes-header [data-lane="teacher"] { color: var(--lane-teacher); background: var(--lane-teacher-bg); }
+
+  @media (min-width: 761px) {
+    .flow-diagram { min-width: 940px; }
+  }
+
+  .flow-track { display: flex; flex-direction: column; }
+
+  .flow-row {
+    display: grid;
+    grid-template-columns: 40px repeat(4, minmax(190px, 1fr));
+    gap: 10px 16px;
+    padding: 7px 0;
+  }
+  .spine { position: relative; display: flex; justify-content: center; }
+  .spine::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0; left: 50%;
+    width: 2px;
+    background: var(--border);
+    transform: translateX(-50%);
+    z-index: 0;
+  }
+  .step-num {
+    position: relative;
+    z-index: 1;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--accent-contrast);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--border-strong);
+    border-radius: 6px;
+    padding: 11px 13px 12px;
+    min-width: 0;
+  }
+  .card[data-lane="parent"] { border-left-color: var(--lane-parent); grid-column: 2; }
+  .card[data-lane="ops"] { border-left-color: var(--lane-ops); grid-column: 3; }
+  .card[data-lane="system"] { border-left-color: var(--lane-system); grid-column: 4; }
+  .card[data-lane="teacher"] { border-left-color: var(--lane-teacher); grid-column: 5; }
+
+  .card-head { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-bottom: 5px; }
+  .lane-chip {
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 999px;
+  }
+  .lane-chip[data-lane="parent"] { color: var(--lane-parent); background: var(--lane-parent-bg); }
+  .lane-chip[data-lane="ops"] { color: var(--lane-ops); background: var(--lane-ops-bg); }
+  .lane-chip[data-lane="system"] { color: var(--lane-system); background: var(--lane-system-bg); }
+  .lane-chip[data-lane="teacher"] { color: var(--lane-teacher); background: var(--lane-teacher-bg); }
+
+  .card h3 { margin: 0 0 4px; font-size: 13.5px; font-weight: 700; }
+  .card p { margin: 3px 0; color: var(--text-muted); font-size: 12.5px; }
+  .card .sub { margin: 5px 0 0; font-size: 12.5px; color: var(--text-muted); display: flex; gap: 6px; align-items: baseline; flex-wrap: wrap; }
+  .card .note-small { margin-top: 6px; font-size: 11px; color: var(--text-faint); border-top: 1px dashed var(--border); padding-top: 5px; }
+
+  .branch-list { list-style: none; margin: 6px 0 0; padding: 8px 0 0; border-top: 1px dashed var(--border); display: flex; flex-direction: column; gap: 6px; }
+  .branch-list li { font-size: 12px; color: var(--text-muted); display: flex; gap: 6px; flex-wrap: wrap; align-items: baseline; }
+  .branch-list li .arrow { color: var(--text-faint); }
+
+  .card.manual { background: var(--manual-bg); border-color: var(--manual-border); }
+  .manual-reason { margin-top: 6px; font-size: 12px; color: var(--manual-fg); font-weight: 500; }
+
+  /* ---------- mobile ---------- */
+  @media (max-width: 760px) {
+    .lanes-header { display: none; }
+    .flow-row { grid-template-columns: 28px 1fr; gap: 8px; }
+    .card { grid-column: 2 !important; }
+    .step-num { width: 22px; height: 22px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+
+<div class="page">
+
+  <header class="hero">
+    <p class="kicker">家庭教師 Eden の業務フロー</p>
+    <h1>Eden 入会から授業開始まで</h1>
+    <p class="lede">保護者の登録から、担当の先生が決まり、授業が始まるまでの流れです。<strong>誰が・どの LINE グループで</strong> やっているかが一目でわかります。</p>
+  </header>
+
+  <h2 class="overview-title">全体の流れ</h2>
+  <div class="overview-flow">
+
+    <div class="ov-card">
+      <span class="ov-num">1</span>
+      <div class="ov-chips"><span class="ov-role">居村さん</span><span class="tag-manual">🖐 人の手</span></div>
+      <h3>初回面談</h3>
+      <p>コースの説明とあわせて、ざっくりお話をうかがう。内容はあとの担当募集にも使う。</p>
+    
+      <div class="ov-auto-none">自動の処理なし</div>
+    </div>
+    <div class="ov-arrow">→</div>
+
+    <div class="ov-card">
+      <span class="ov-num">2</span>
+      <div class="ov-chips"><span class="ov-role">保護者</span><span class="tag-manual">🖐 人の手</span></div>
+      <h3>入会・登録</h3>
+      <p>保護者が登録し、毎週の空き時間を入力する。</p>
+    
+      <div class="ov-auto"><span class="ov-auto-label">⚙ システムが自動で</span><ul><li>面談待ちとして自動で一覧に載る</li><li>プランニング面談の日程候補を自動で下書き</li></ul></div>
+    </div>
+    <div class="ov-arrow">→</div>
+
+    <div class="ov-card">
+      <span class="ov-num">3</span>
+      <div class="ov-chips"><span class="ov-role">椙杜・運営</span><span class="tag-manual">🖐 人の手</span></div>
+      <h3>担当の募集</h3>
+      <p>椙杜が初回面談のマップから募集を作る。</p>
+    
+      <div class="ov-auto"><span class="ov-auto-label">⚙ システムが自動で</span><ul><li>講師用 LINE グループへ自動で告知</li><li>応募があれば運営グループへ自動で通知</li></ul></div>
+    </div>
+    <div class="ov-arrow">→</div>
+
+    <div class="ov-card">
+      <span class="ov-num">4</span>
+      <div class="ov-chips"><span class="ov-role">椙杜・運営</span><span class="tag-manual">🖐 人の手</span></div>
+      <h3>担当の決定</h3>
+      <p>応募してきた先生の中から 椙杜 が選ぶ。</p>
+    
+      <div class="ov-auto"><span class="ov-auto-label">⚙ システムが自動で</span><ul><li>担当の先生を自動で登録</li><li>講師用 LINE に「埋まりました」を自動送信</li><li>運営グループへ決定通知とチェックリスト<span class="tag-prep">準備中</span></li></ul></div>
+    </div>
+    <div class="ov-arrow">→</div>
+
+    <div class="ov-card">
+      <span class="ov-num">5</span>
+      <div class="ov-chips"><span class="ov-role">椙杜・運営</span><span class="tag-manual">🖐 人の手</span></div>
+      <h3>先生を家庭グループへ</h3>
+      <p>担当の先生を、家庭の LINE グループへ招待する。</p>
+    
+      <div class="ov-auto"><span class="ov-auto-label">⚙ システムが自動で</span><ul><li>先生が家庭グループに入ったら自動で気づく<span class="tag-prep">準備中</span></li><li>済んでいなければ毎朝催促<span class="tag-prep">準備中</span></li></ul></div>
+    </div>
+    <div class="ov-arrow">→</div>
+
+    <div class="ov-card">
+      <span class="ov-num">6</span>
+      <div class="ov-chips"><span class="ov-role">椙杜</span><span class="tag-manual">🖐 人の手</span></div>
+      <h3>プランニング面談</h3>
+      <p>椙杜が勉強法や教材、システムの使い方を説明する。</p>
+    
+      <div class="ov-auto"><span class="ov-auto-label">⚙ システムが自動で</span><ul><li>録画を自動で YouTube へ</li></ul></div>
+    </div>
+    <div class="ov-arrow">→</div>
+
+    <div class="ov-card">
+      <span class="ov-num">7</span>
+      <div class="ov-chips"><span class="ov-role">椙杜</span><span class="tag-manual">🖐 人の手</span></div>
+      <h3>マップと動画を共有</h3>
+      <p>面談の内容をまとめて家庭グループへ送る。先生も同じ場所で見られる。</p>
+    
+      <div class="ov-auto-none">自動の処理なし</div>
+    </div>
+    <div class="ov-arrow">→</div>
+
+    <div class="ov-card">
+      <span class="ov-num">8</span>
+      <div class="ov-chips"><span class="ov-role">先生</span><span class="tag-manual">🖐 人の手</span></div>
+      <h3>授業開始</h3>
+      <p>担当の先生が、指導を始める。</p>
+    
+      <div class="ov-auto-none">自動の処理なし</div>
+    </div>
+
+  </div>
+
+  <div class="overview-summary">
+    <ul>
+      <li>判断（募集を出す・担当を決める）は人がやり、告知・担当の登録・録画はシステムが自動でやる。LINE には人をグループへ自動で追加するしくみが無いので、先生を家庭グループへ入れるのは人の手。</li>
+      <li>運営向けの通知（応募・担当決定・完了）は🔔顧客管理システムのグループに集まる（椙杜・居村さん・石橋さんの3人）。椙杜 がいなくても流れが見える。</li>
+      <li>担当が決まったあとの通知やチェックリストのしくみは、いま準備中。</li>
+      <li>対応が残っていれば毎朝まとめて知らせるしくみも、準備中。</li>
+    </ul>
+  </div>
+
+  <section class="legend-grid">
+    <div class="legend-box">
+      <h2>マークの見方</h2>
+      <ul>
+        <li><span class="tag-auto">⚙ 自動</span> システムが自動で行う</li>
+        <li><span class="tag-manual">🖐 人の手</span> 人が操作する</li>
+        <li><span class="tag-prep">準備中</span> まだ動いていない（これから用意する）</li>
+      </ul>
+    </div>
+    <div class="legend-box">
+      <h2>LINE グループの凡例</h2>
+      <ul class="line-legend">
+        <li><i class="dot" data-line="ops"></i><b>🔔 Eden顧客管理システム</b> <span class="count">椙杜・居村さん・石橋さん（3人）</span></li>
+        <li><i class="dot" data-line="test"></i><b>テスト用</b> <span class="count">椙杜 だけ（1人）</span></li>
+        <li><i class="dot" data-line="teacher"></i><b>Eden 講師用</b> <span class="count">先生 約30人</span></li>
+        <li><i class="dot" data-line="family"></i><b>家庭の合格プロジェクトグループ</b> <span class="count">家庭ごと</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="section-heading"><span class="section-letter">A</span><h2>入会からプランニング面談の日程まで</h2></div>
+  <div class="diagram-scroll">
+    <div class="flow-diagram">
+      <div class="lanes-header">
+        <div></div>
+        <div data-lane="parent">保護者</div>
+        <div data-lane="ops">椙杜・運営</div>
+        <div data-lane="system">システム</div>
+        <div data-lane="teacher">講師</div>
+      </div>
+      <div class="flow-track">
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">1</span></div>
+          <div class="card" data-lane="parent">
+            <div class="card-head"><span class="lane-chip" data-lane="parent">保護者</span><span class="tag-manual">🖐 人の手</span></div>
+            <h3>登録して空き時間を入力</h3>
+            <p>保護者が登録し、毎週の空き時間も入力する（あとで入力してもよい）。</p>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">2</span></div>
+          <div class="card" data-lane="system">
+            <div class="card-head"><span class="lane-chip" data-lane="system">システム</span><span class="tag-auto">⚙ 自動</span></div>
+            <h3>面談待ちに入る</h3>
+            <p>登録すると、生徒の情報が自動で「面談待ち」として並ぶ。</p>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">3</span></div>
+          <div class="card" data-lane="ops">
+            <div class="card-head"><span class="lane-chip" data-lane="ops">椙杜・運営</span><span class="tag-manual">🖐 人の手</span></div>
+            <h3>家庭の LINE グループを紐づける</h3>
+            <p>面談待ちの間に、運営が家庭の LINE グループをシステムに紐づける。あとで先生が参加したことにシステムが気づけるようにするため。</p>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">4</span></div>
+          <div class="card" data-lane="system">
+            <div class="card-head"><span class="lane-chip" data-lane="system">システム</span><span class="tag-auto">⚙ 自動</span></div>
+            <h3>面談日の下書きを作る</h3>
+            <p>空いている日時の候補を自動で計算し、案内文の下書きをテスト用グループへ送る。</p>
+            <div class="sub"><span class="line-tag"><i class="dot" data-line="test"></i>テスト用</span></div>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">5</span></div>
+          <div class="card" data-lane="ops">
+            <div class="card-head"><span class="lane-chip" data-lane="ops">椙杜・運営</span><span class="tag-manual">🖐 人の手</span></div>
+            <h3>椙杜 が保護者に送る</h3>
+            <p>下書きの文面をコピーして、椙杜 が保護者へ案内する。</p>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">6</span></div>
+          <div class="card" data-lane="ops">
+            <div class="card-head"><span class="lane-chip" data-lane="ops">椙杜・運営</span><span class="tag-manual">🖐 人の手</span></div>
+            <h3>面談日を確定する</h3>
+            <p>保護者から返事が来たら、椙杜 がその日時を送るだけで面談日が自動で登録される。</p>
+            <ul class="branch-list">
+              <li><span class="arrow">↳</span> 「他の日」→ 別の候補を出す <span class="tag-prep">準備中</span></li>
+              <li><span class="arrow">↳</span> 「確定→OK」の二段階確認 <span class="tag-prep">準備中</span></li>
+            </ul>
+            <div class="sub"><span class="line-tag"><i class="dot" data-line="test"></i>テスト用</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading"><span class="section-letter">B</span><h2>担当の募集から決定まで</h2></div>
+  <div class="diagram-scroll">
+    <div class="flow-diagram">
+      <div class="lanes-header">
+        <div></div>
+        <div data-lane="parent">保護者</div>
+        <div data-lane="ops">椙杜・運営</div>
+        <div data-lane="system">システム</div>
+        <div data-lane="teacher">講師</div>
+      </div>
+      <div class="flow-track">
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">1</span></div>
+          <div class="card" data-lane="ops">
+            <div class="card-head"><span class="lane-chip" data-lane="ops">椙杜・運営</span><span class="tag-manual">🖐 人の手</span></div>
+            <h3>募集を作る</h3>
+            <p>担当のいない生徒について募集の内容を用意する。初回面談のマインドマップを紹介文に使う。</p>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">2</span></div>
+          <div class="card" data-lane="system">
+            <div class="card-head"><span class="lane-chip" data-lane="system">システム</span><span class="tag-auto">⚙ 自動</span></div>
+            <h3>第一報を講師用グループへ</h3>
+            <p>学年・性別・毎週の空き時間を知らせる（生徒名は載せない）。</p>
+            <div class="sub"><span class="line-tag"><i class="dot" data-line="teacher"></i>Eden 講師用（30人）</span></div>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">3</span></div>
+          <div class="card" data-lane="teacher">
+            <div class="card-head"><span class="lane-chip" data-lane="teacher">講師</span><span class="tag-manual">🖐 人の手</span></div>
+            <h3>応募する</h3>
+            <p>興味のある先生が、詳しい募集ページを見て応募する。</p>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">4</span></div>
+          <div class="card" data-lane="system">
+            <div class="card-head"><span class="lane-chip" data-lane="system">システム</span><span class="tag-auto">⚙ 自動</span></div>
+            <h3>応募の通知</h3>
+            <p>応募があると、運営に知らせが届く。</p>
+            <div class="sub"><span class="line-tag"><i class="dot" data-line="ops"></i>🔔 Eden顧客管理システム</span></div>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">5</span></div>
+          <div class="card" data-lane="ops">
+            <div class="card-head"><span class="lane-chip" data-lane="ops">椙杜・運営</span><span class="tag-manual">🖐 人の手</span></div>
+            <h3>決定 → 担当が自動で付く</h3>
+            <p>椙杜 が応募の中から選ぶと、担当が自動で登録され、講師用グループに「埋まりました」と届く。</p>
+            <div class="sub"><span class="line-tag"><i class="dot" data-line="teacher"></i>Eden 講師用（埋まりました）</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading"><span class="section-letter">C</span><h2>担当決定後の確認（新しいしくみ）</h2></div>
+  <div class="diagram-scroll">
+    <div class="flow-diagram">
+      <div class="lanes-header">
+        <div></div>
+        <div data-lane="parent">保護者</div>
+        <div data-lane="ops">椙杜・運営</div>
+        <div data-lane="system">システム</div>
+        <div data-lane="teacher">講師</div>
+      </div>
+      <div class="flow-track">
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">1</span></div>
+          <div class="card" data-lane="system">
+            <div class="card-head"><span class="lane-chip" data-lane="system">システム</span><span class="tag-auto">⚙ 自動</span><span class="tag-prep">準備中</span></div>
+            <h3>チェックリストを立てる</h3>
+            <p>担当が決まるたびに、確認すべきことを自動でリストアップする。</p>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">2</span></div>
+          <div class="card" data-lane="system">
+            <div class="card-head"><span class="lane-chip" data-lane="system">システム</span><span class="tag-auto">⚙ 自動</span><span class="tag-prep">準備中</span></div>
+            <h3>顧客管理システムへ決定通知</h3>
+            <p>誰にどの生徒の担当が決まったかを、運営の3人に知らせる。</p>
+            <div class="sub"><span class="line-tag"><i class="dot" data-line="ops"></i>🔔 Eden顧客管理システム</span></div>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">3</span></div>
+          <div class="card manual" data-lane="ops">
+            <div class="card-head"><span class="lane-chip" data-lane="ops">椙杜・運営</span><span class="tag-manual">🖐 人の手</span></div>
+            <h3>先生を家庭グループへ（面談の前に）</h3>
+            <p>担当の先生を、家庭の LINE グループへ招待する。誰がやってもよい。</p>
+            <div class="sub"><span class="line-tag"><i class="dot" data-line="family"></i>家庭グループ</span></div>
+            <div class="manual-reason">LINE には人を自動で追加するしくみが無いため、ここだけは人の手で行う。</div>
+            <div class="note-small">先生の参加にシステムが自動で気づくしくみ <span class="tag-prep">準備中</span></div>
+            <div class="note-small">分岐：プランニング面談のあとに担当が決まった場合、先生はそれより前のやり取りを見られない。そのときは 椙杜 がマップと動画を別途送る。</div>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">4</span></div>
+          <div class="card" data-lane="system">
+            <div class="card-head"><span class="lane-chip" data-lane="system">システム</span><span class="tag-auto">⚙ 自動</span><span class="tag-prep">準備中</span></div>
+            <h3>完了通知</h3>
+            <p>先生の追加が済むと、運営の3人に完了を知らせる。</p>
+            <div class="sub"><span class="line-tag"><i class="dot" data-line="ops"></i>🔔 Eden顧客管理システム</span></div>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">5</span></div>
+          <div class="card" data-lane="system">
+            <div class="card-head"><span class="lane-chip" data-lane="system">システム</span><span class="tag-auto">⚙ 自動</span><span class="tag-prep">準備中</span></div>
+            <h3>残っていれば毎朝催促</h3>
+            <p>対応が残っていれば、毎朝まとめて運営に知らせる。</p>
+            <div class="sub"><span class="line-tag"><i class="dot" data-line="ops"></i>🔔 Eden顧客管理システム</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading"><span class="section-letter">D</span><h2>プランニング面談のあと</h2></div>
+  <div class="diagram-scroll">
+    <div class="flow-diagram">
+      <div class="lanes-header">
+        <div></div>
+        <div data-lane="parent">保護者</div>
+        <div data-lane="ops">椙杜・運営</div>
+        <div data-lane="system">システム</div>
+        <div data-lane="teacher">講師</div>
+      </div>
+      <div class="flow-track">
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">1</span></div>
+          <div class="card" data-lane="ops">
+            <div class="card-head"><span class="lane-chip" data-lane="ops">椙杜</span><span class="tag-manual">🖐 人の手</span><span class="tag-auto">⚙ 録画は自動</span></div>
+            <h3>プランニング面談を実施</h3>
+            <p>勉強法や教材、システムの使い方を説明する。録画は自動で YouTube にあがる。</p>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">2</span></div>
+          <div class="card" data-lane="ops">
+            <div class="card-head"><span class="lane-chip" data-lane="ops">椙杜</span><span class="tag-manual">🖐 人の手</span></div>
+            <h3>マップと動画を家庭グループへ</h3>
+            <p>面談の内容をまとめて家庭の LINE グループへ送る。先生も同じ場所で見られる。</p>
+            <div class="sub"><span class="line-tag"><i class="dot" data-line="family"></i>家庭グループ</span></div>
+          </div>
+        </div>
+
+        <div class="flow-row">
+          <div class="spine"><span class="step-num">3</span></div>
+          <div class="card" data-lane="ops">
+            <div class="card-head"><span class="lane-chip" data-lane="ops">椙杜・運営</span><span class="tag-manual">🖐 人の手</span></div>
+            <h3>確定（入会の確定）</h3>
+            <p>担当が決まっていればその先生で固定し、正式に入会を確定する。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
