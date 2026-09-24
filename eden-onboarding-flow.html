@@ -391,7 +391,7 @@
       <h3>担当の決定</h3>
       <p>応募してきた先生の中から 椙杜 が選ぶ。</p>
     
-      <div class="ov-auto"><span class="ov-auto-label">⚙ システムが自動で</span><ul><li>担当の先生を自動で登録</li><li>講師用 LINE に「埋まりました」を自動送信</li><li>運営グループへ決定通知とチェックリスト<span class="tag-prep">準備中</span></li></ul></div>
+      <div class="ov-auto"><span class="ov-auto-label">⚙ システムが自動で</span><ul><li>担当の先生を自動で登録</li><li>講師用 LINE に「埋まりました」を自動送信</li><li>運営グループへ決定通知とチェックリスト</li></ul></div>
     </div>
     <div class="ov-arrow">→</div>
 
@@ -440,7 +440,7 @@
     <ul>
       <li>判断（募集を出す・担当を決める）は人がやり、告知・担当の登録・録画はシステムが自動でやる。LINE には人をグループへ自動で追加するしくみが無いので、先生を家庭グループへ入れるのは人の手。</li>
       <li>運営向けの通知（応募・担当決定・完了）は🔔顧客管理システムのグループに集まる（椙杜・居村さん・石橋さんの3人）。椙杜 がいなくても流れが見える。</li>
-      <li>担当が決まったあとの通知やチェックリストのしくみは、いま準備中。</li>
+      <li>担当が決まったあとの通知とチェックリストは動いている。先生を家庭グループに入れたら、生徒管理ページで「済みにする」を押す。</li>
       <li>対応が残っていれば毎朝まとめて知らせるしくみも、準備中。</li>
     </ul>
   </div>
@@ -620,18 +620,18 @@
         <div class="flow-row">
           <div class="spine"><span class="step-num">1</span></div>
           <div class="card" data-lane="system">
-            <div class="card-head"><span class="lane-chip" data-lane="system">システム</span><span class="tag-auto">⚙ 自動</span><span class="tag-prep">準備中</span></div>
+            <div class="card-head"><span class="lane-chip" data-lane="system">システム</span><span class="tag-auto">⚙ 自動</span></div>
             <h3>チェックリストを立てる</h3>
-            <p>担当が決まるたびに、確認すべきことを自動でリストアップする。</p>
+            <p>担当が決まるたびに、確認すべきことを自動でリストアップし、生徒管理ページに表示する。</p>
           </div>
         </div>
 
         <div class="flow-row">
           <div class="spine"><span class="step-num">2</span></div>
           <div class="card" data-lane="system">
-            <div class="card-head"><span class="lane-chip" data-lane="system">システム</span><span class="tag-auto">⚙ 自動</span><span class="tag-prep">準備中</span></div>
+            <div class="card-head"><span class="lane-chip" data-lane="system">システム</span><span class="tag-auto">⚙ 自動</span></div>
             <h3>顧客管理システムへ決定通知</h3>
-            <p>誰にどの生徒の担当が決まったかを、運営の3人に知らせる。</p>
+            <p>誰にどの生徒の担当が決まったかを、プランニング面談の日付つきで運営の3人に知らせる。家庭グループがまだ紐づいていなければ、それも知らせる。</p>
             <div class="sub"><span class="line-tag"><i class="dot" data-line="ops"></i>🔔 Eden顧客管理システム</span></div>
           </div>
         </div>
@@ -641,7 +641,7 @@
           <div class="card manual" data-lane="ops">
             <div class="card-head"><span class="lane-chip" data-lane="ops">椙杜・運営</span><span class="tag-manual">🖐 人の手</span></div>
             <h3>先生を家庭グループへ（面談の前に）</h3>
-            <p>担当の先生を、家庭の LINE グループへ招待する。誰がやってもよい。</p>
+            <p>担当の先生を、家庭の LINE グループへ招待する。誰がやってもよい。済んだら生徒管理ページで「済みにする」を押す。</p>
             <div class="sub"><span class="line-tag"><i class="dot" data-line="family"></i>家庭グループ</span></div>
             <div class="manual-reason">LINE には人を自動で追加するしくみが無いため、ここだけは人の手で行う。</div>
             <div class="note-small">先生の参加にシステムが自動で気づくしくみ <span class="tag-prep">準備中</span></div>
@@ -652,9 +652,9 @@
         <div class="flow-row">
           <div class="spine"><span class="step-num">4</span></div>
           <div class="card" data-lane="system">
-            <div class="card-head"><span class="lane-chip" data-lane="system">システム</span><span class="tag-auto">⚙ 自動</span><span class="tag-prep">準備中</span></div>
+            <div class="card-head"><span class="lane-chip" data-lane="system">システム</span><span class="tag-auto">⚙ 自動</span></div>
             <h3>完了通知</h3>
-            <p>先生の追加が済むと、運営の3人に完了を知らせる。</p>
+            <p>「済みにする」を押すと、運営の3人に完了を知らせる。</p>
             <div class="sub"><span class="line-tag"><i class="dot" data-line="ops"></i>🔔 Eden顧客管理システム</span></div>
           </div>
         </div>
