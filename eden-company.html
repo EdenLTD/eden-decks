@@ -45,12 +45,39 @@ dl.profile{display:grid;grid-template-columns:7.5em 1fr;row-gap:0}
 dl.profile dt,dl.profile dd{padding:11px 0;border-top:1px solid var(--line);font-size:15.5px}
 dl.profile dt{color:var(--ink2)}
 dl.profile dt:first-of-type,dl.profile dd:first-of-type{border-top:0}
-.links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.links a{display:flex;align-items:center;justify-content:center;min-height:52px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--navy);font-weight:700;font-size:15px;text-align:center;background:#fff}
-.links a:hover{border-color:var(--aqua)}
+dl.profile a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}
+.follow{padding-top:30px}
+.btn-line{display:flex;align-items:center;justify-content:center;gap:10px;min-height:60px;padding:10px 16px;border-radius:12px;background:#03873a;color:#fff;font-weight:700;font-size:17px;letter-spacing:.04em;text-decoration:none}
+.btn-line svg{width:26px;height:26px;fill:#fff;flex:none}
+.btn-line:hover{background:#037a35}
+.sns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.sns a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:76px;padding:8px 4px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--navy);font-weight:700;font-size:13.5px;line-height:1.35;text-align:center;text-decoration:none}
+.sns a:hover{border-color:var(--aqua)}
+.sns svg{width:24px;height:24px;fill:none;stroke:var(--navy);stroke-width:1.7;flex:none}
+.sns svg circle[r=".6"],.sns svg path[d^="M10.2"]{fill:var(--navy)}
+.rep{display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:end}
+.rep img{display:block;width:100%;height:auto;border-radius:12px;background:var(--tint)}
+.rep .role{font-size:13.5px;line-height:1.7;color:var(--ink2)}
+.rep .nm{margin-top:6px;font-size:26px;font-weight:700;line-height:1.3;letter-spacing:.12em}
+.rep .nm span{display:block;margin-top:4px;font-family:"Jost",sans-serif;font-weight:500;font-size:12px;letter-spacing:.2em;color:var(--blue)}
+.bio{margin-top:18px;font-size:15.5px}
+.bio p+p{margin-top:10px}
+.book{display:grid;grid-template-columns:112px 1fr;gap:18px;align-items:start}
+.book img{display:block;width:100%;height:auto}
+.book h3{font-size:17px;line-height:1.5;color:var(--navy)}
+.book .pub{margin:4px 0 8px;font-size:13.5px;color:var(--ink2)}
+.book p{font-size:15px}
+ul.pass{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+ul.pass li{padding:3px 10px;border-radius:999px;background:var(--tint);color:var(--navy);font-size:13.5px;line-height:1.6}
+.note{margin-top:10px;font-size:13.5px;color:var(--ink2)}
+figure.event img{display:block;width:100%;height:auto;border-radius:12px;background:var(--tint)}
+figure.event figcaption{margin-top:8px;font-size:13.5px;color:var(--ink2)}
+.cta{margin-top:40px;padding:22px 18px;border-radius:14px;background:var(--tint)}
+.cta p{margin-bottom:12px;font-weight:700;color:var(--navy);text-align:center}
 footer{margin-top:44px;padding:22px 0 34px;border-top:1px solid var(--line);color:var(--ink2);font-size:13px}
 @media (max-width:640px){.hero h1{padding-right:86px}.bars{gap:5px}.bars i{width:18px}.bars i:nth-child(1){height:44px;clip-path:polygon(0 0,100% 18px,100% 100%,0 100%)}.bars i:nth-child(2){height:72px;clip-path:polygon(0 0,100% 18px,100% 100%,0 100%)}.bars i:nth-child(3){height:104px;width:34px}}
-@media (max-width:420px){.links{grid-template-columns:minmax(0,1fr)}dl.profile{grid-template-columns:6em 1fr}}
+@media (max-width:560px){.rep{grid-template-columns:minmax(0,1fr);gap:14px}.rep img{max-width:260px}}
+@media (max-width:420px){dl.profile{grid-template-columns:6em 1fr}.book{grid-template-columns:96px 1fr;gap:14px}}
 @media (prefers-reduced-motion:no-preference){.bars i{transform-origin:bottom;animation:grow .7s ease-out both}.bars i:nth-child(2){animation-delay:.08s}.bars i:nth-child(3){animation-delay:.16s}@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}}
 </style></head>
 <body>
@@ -60,10 +87,21 @@ footer{margin-top:44px;padding:22px 0 34px;border-top:1px solid var(--line);colo
   <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
 </div></div>
 <main class="wrap">
+  <section class="follow" aria-labelledby="h-follow"><h2 id="h-follow">家庭教師Eden の公式アカウント</h2><a class="btn-line" href="https://line.me/R/ti/p/@394xhbmi" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2c-5.1 0-9.3 3.3-9.3 7.4 0 3.7 3.3 6.8 7.8 7.3l-.7 3 4-2.9c4.4-.7 7.5-3.7 7.5-7.4 0-4.1-4.2-7.4-9.3-7.4z"/></svg>公式LINEで友だち追加</a><div class="sns"><a href="https://www.instagram.com/eden_juken/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.1" cy="6.9" r=".6"/></svg><span>Instagram</span></a><a href="https://www.youtube.com/channel/UCXcykDnZ_MJnxvPSUm7ZUCw" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3v5.4l4.6-2.7z"/></svg><span>YouTube</span></a><a href="https://eden-kobetu.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.7 2.6 2.7 14.4 0 17M12 3.5c-2.7 2.6-2.7 14.4 0 17"/></svg><span>家庭教師Eden<br>公式サイト</span></a></div></section>
+  <section aria-labelledby="h-rep"><h2 id="h-rep">代表プロフィール</h2>
+    <div class="rep"><img src="./company/naoki.jpg" width="640" height="800" alt="代表取締役 居村直希">
+      <div><p class="role">株式会社Eden 代表取締役<br>中学受験逆転合格プロデューサー®</p><p class="nm">居村 直希<span>IMURA NAOKI</span></p></div></div>
+    <div class="bio"><p>私学教員・大手塾講師を経て、「一人一人の生徒を勝たせる」ことを信念に個別指導塾Edenをスタート。現在はプロ家庭教師のEdenの運営と代表講師として、年間50人以上の生徒を有名校合格に導いている。</p><p>都心では毎年「明大明治」「世田谷学園」「都市大付属」「攻玉社」「本郷」「芝」「高輪」など有名中学に全員合格させた実績を持つ。</p></div></section>
+  <section aria-labelledby="h-book"><h2 id="h-book">著書</h2>
+    <div class="book"><img src="./company/book.jpg" width="305" height="450" loading="lazy" alt="書籍『小学生が勉強にハマる強み学習法』の表紙">
+      <div><h3>『小学生が勉強にハマる強み学習法』</h3><p class="pub">総合法令出版・2025年2月</p><p>紀伊国屋・有隣堂・ジュンク堂にて、総合・実用書のジャンルでベストセラーとして各店舗で1位を獲得している。</p></div></div></section>
+  <section aria-labelledby="h-pass"><h2 id="h-pass">2025年 合格実績</h2><ul class="pass"><li>麻布中学</li><li>本郷</li><li>高輪</li><li>世田谷学園</li><li>広尾学園</li><li>金光学園</li><li>浦和実業</li><li>静岡学園</li><li>東京農大</li><li>国学院久我山</li><li>函館ラサール</li><li>桐光学園</li><li>桐蔭学園</li><li>森村学園</li><li>開智所沢</li><li>埼玉栄医学部コース</li><li>筑紫女子学園</li><li>上宮</li><li>横浜創英</li><li>横浜雙葉</li><li>鎌倉女学院</li><li>穎明館</li><li>中部大春日</li><li>駒場東邦</li><li>栄東東大コース</li><li>智辯学園奈良カレッジ</li><li>神奈川大学附属</li><li>AICJ特待</li><li>広島国際特待</li><li>開智</li><li>城北</li><li>清風</li><li>東山</li><li>近大付属</li><li>吉祥寺女子清風中</li><li>日大豊山</li><li>安田学園</li><li>帝塚山</li><li>追手門大手前</li><li>北嶺</li><li>六甲</li><li>岡山白陵</li><li>岡山</li><li>逗子開成</li><li>鎌倉学園</li><li>大宮開成</li><li>栄光</li><li>高槻</li><li>滝川第二</li><li>洛星</li></ul><p class="note">など日本全国の有名校のほか20校（オンライン指導のみ）</p></section>
+  <section aria-labelledby="h-event"><h2 id="h-event">活動の様子</h2>
+    <figure class="event"><img src="./company/event.jpg" width="1122" height="609" loading="lazy" alt="出版記念イベントの集合写真"><figcaption>出版記念イベントにて</figcaption></figure></section>
   <section aria-labelledby="h-pillars"><h2 id="h-pillars">主な事業</h2><div class="pillar"><div class="ic" aria-hidden="true"><i style="height:14px;background:var(--navy)"></i></div><div><h3>中学受験専門のオンライン教育事業</h3><p>全国の小学生を対象に、オンライン個別指導、ライブ授業、受験戦略・志望校選定・併願設計、過去問分析、学習管理、保護者向けコンサルティングなどを提供しています。</p></div></div><div class="pillar"><div class="ic" aria-hidden="true"><i style="height:21px;background:var(--blue)"></i></div><div><h3>AI教育システム・EdTech事業</h3><p>自社の学習アプリ「EdenQuest」と、授業管理・保護者ポータル「EdenTeacher」の企画・開発・運営を行い、AIによる学習分析、個別最適化、講師の指導支援、教育コンテンツのデジタル化などに取り組んでいます。</p></div></div><div class="pillar"><div class="ic" aria-hidden="true"><i style="height:30px;background:var(--aqua)"></i></div><div><h3>オンラインスクール経営・Webマーケティング事業</h3><p>オンライン教育事業の運営で培ったノウハウを活用し、スクールの商品設計、SNS・YouTube・LINE集客、Web広告、ウェビナー、販売導線の構築、マーケティング自動化などに取り組んでいます。</p></div></div><p class="also">また、オンラインセミナー・講座の企画運営、動画教材の制作、AIを活用した業務効率化や新規事業の開発も進めております。</p></section>
   <section aria-labelledby="h-biz"><h2 id="h-biz">事業内容</h2><ol class="biz"><li>中学受験専門オンラインスクール・個別指導事業</li><li>AI教育アプリ・学習支援システムの企画、開発、運営</li><li>オンライン講座・セミナー・教育コンテンツの企画制作</li><li>スクール経営・教育事業に関するコンサルティング</li><li>Webマーケティング・SNS集客・広告運用支援</li><li>AI活用・業務効率化・DX推進に関する企画支援</li></ol></section>
-  <section aria-labelledby="h-profile"><h2 id="h-profile">会社概要</h2><dl class="profile"><dt>会社名</dt><dd>株式会社Eden</dd><dt>代表取締役</dt><dd>居村 直希</dd><dt>所在地</dt><dd>〒221-0056 神奈川県横浜市神奈川区金港町5-14 クアドリフォリオ8F</dd></dl></section>
-  <section aria-labelledby="h-links"><h2 id="h-links">家庭教師Eden</h2><div class="links"><a href="https://eden-kobetu.com/" target="_blank" rel="noopener">家庭教師Eden 公式サイト</a><a href="https://line.me/R/ti/p/@394xhbmi" target="_blank" rel="noopener">公式LINE</a><a href="https://www.instagram.com/eden_juken/" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/channel/UCXcykDnZ_MJnxvPSUm7ZUCw" target="_blank" rel="noopener">YouTube</a></div></section>
+  <section aria-labelledby="h-profile"><h2 id="h-profile">会社概要</h2><dl class="profile"><dt>会社名</dt><dd>株式会社Eden</dd><dt>代表取締役</dt><dd>居村 直希</dd><dt>所在地</dt><dd>〒221-0056 神奈川県横浜市神奈川区金港町5-14 クアドリフォリオ8F</dd><dt>電話</dt><dd><a href="tel:0452972043">045-297-2043</a></dd></dl></section>
+  <div class="cta"><p>家庭教師Eden の公式LINE</p><a class="btn-line" href="https://line.me/R/ti/p/@394xhbmi" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2c-5.1 0-9.3 3.3-9.3 7.4 0 3.7 3.3 6.8 7.8 7.3l-.7 3 4-2.9c4.4-.7 7.5-3.7 7.5-7.4 0-4.1-4.2-7.4-9.3-7.4z"/></svg>公式LINEで友だち追加</a></div>
 </main>
 <footer><div class="wrap">© 株式会社Eden</div></footer>
 </body></html>
