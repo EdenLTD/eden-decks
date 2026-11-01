@@ -1,7 +1,7 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
 <title>EdenQuest の使い方 — 講師向けガイド</title>
-<meta name="description" content="学習アプリ EdenQuest の講師向け使い方ガイド（先生アカウント・生徒の進捗確認・授業での活用。2026-08-20）">
+<meta name="description" content="学習アプリ EdenQuest の講師向け使い方ガイド（先生アカウント・生徒の進捗確認・授業での活用。2026-11-01）">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#1b2733;--muted:#5d6b7a;--line:#e4e9ef;--bg:#f6f8fb;--card:#fff;--accent:#0b6fb6;--accent2:#e8f1fb;--warn:#b26a00;--warnbg:#fff6e5;--ok:#1f7a4d;--okbg:#e9f6ef}
@@ -36,7 +36,7 @@ th{background:var(--accent2);color:#0b5a94;font-weight:700}
 @media(max-width:860px){.wrap{grid-template-columns:1fr}aside{position:static;max-height:none}}
 @media print{.top,aside{display:none}.wrap{grid-template-columns:1fr;padding:0}body{background:#fff}}
 </style></head><body>
-<div class="top"><div class="in"><div class="brand">EdenQuest の使い方<small>講師向けガイド（2026-08-20版）</small></div></div></div>
+<div class="top"><div class="in"><div class="brand">EdenQuest の使い方<small>講師向けガイド（2026-11-01版）</small></div></div></div>
 <div class="wrap">
 <aside><ul class="toc">
 <li><a href="#about">1. EdenQuest とは</a></li>
@@ -60,27 +60,29 @@ th{background:var(--accent2);color:#0b5a94;font-weight:700}
 <h2><span class="num">1</span>EdenQuest とは</h2>
 <ul>
 <li>URL: <a href="https://edenquest.vercel.app" target="_blank" rel="noopener">https://edenquest.vercel.app</a>（生徒はスマホ・タブレット・PC どれでも使えます）</li>
-<li>利用できるのは<strong>対象コースの家庭</strong>です。担当生徒が使えるかどうか不明な場合は管理者に確認してください。</li>
+<li>EdenQuest を使えるのは、<strong>24回コースの生徒と、継続が確定した12回コースの生徒だけ</strong>です。初回の12回コース（スタートダッシュ）の生徒は対象外で、アカウントも作られません。担当生徒が使えるかどうか不明な場合は管理者に確認してください。</li>
 <li>問題を解くと XP・コインがもらえ、レベルアップ・ペット育成・称号につながる設計です。<strong>「勉強のごほうびループ」を回して家庭学習を習慣化する</strong>のが狙いです。</li>
+<li>保護者も、edenteacher のホームで、先生と同じ EdenQuest の学習の記録を見ています。</li>
 </ul>
 </div>
 
 <div class="card" id="account">
 <h2><span class="num">2</span>先生アカウントを作る</h2>
 <p>講師は生徒と同じアプリを<strong>先生アカウント（閲覧専用）</strong>で使えます。問題の中身や難易度を自分の目で確認するためのものです。作り方は2通り、どちらでも同じです。</p>
+<div class="callout warn">先生アカウントを作れるのは、<strong>一度でも生徒を受け持ったことのある先生</strong>（担当・サブ・過去の担当を含む）だけです。受け持ったことがない先生は、どちらの方法でも断られます。</div>
 <h3 class="sub">方法A: edenteacher から発行（推奨）</h3>
 <ol>
-<li>edenteacher の先生ダッシュボードにある<strong>「EdenQuest を開く」カード</strong>を押す。</li>
-<li>招待メールが届くので、パスワードを設定してログイン。</li>
+<li>edenteacher のホーム下のカード<strong>「EdenQuest（学習アプリ）を開く」</strong>、またはサイドバー下の<strong>「EdenQuest を開く」</strong>を押す。</li>
+<li>初回だけ招待メールが届くので、パスワードを設定してログイン。</li>
 <li>すでにアカウントがある場合はそのまま開くだけです。</li>
 </ol>
 <h3 class="sub">方法B: EdenQuest のログイン画面から</h3>
 <ol>
-<li>EdenQuest のログイン画面でメールアドレスを入力。</li>
-<li>未登録の場合「先生セットアップ」に進むので、<strong>edenteacher と同じメールアドレス・パスワード</strong>を入力。</li>
+<li>EdenQuest のログイン画面で、見出し<strong>「先生の方はこちら」</strong>を開く。</li>
+<li><strong>edenteacher と同じメールアドレス・パスワード</strong>を入力して、<strong>「先生としてログイン」</strong>を押す。</li>
 <li>edenteacher 側で本人確認が取れると、そのままアカウントが作られてログインできます。</li>
 </ol>
-<div class="callout info">方法Bで弾かれる場合は、edenteacher のアカウントがまだ無いか、パスワードが違います。先に edenteacher にログインできることを確認してください。</div>
+<div class="callout info">方法Bで弾かれる場合は、edenteacher のアカウントがまだ無いか、パスワードが違います。先に edenteacher にログインできることを確認してください。1つのメールアドレスで、<strong>10分間に5回まで</strong>しか試せません。続けて失敗したら、少し待ってからやり直してください。</div>
 </div>
 
 <div class="card" id="viewonly">
@@ -88,7 +90,7 @@ th{background:var(--accent2);color:#0b5a94;font-weight:700}
 <p>先生アカウントは生徒と同じ画面で問題を解けますが、<strong>ゲーム要素には影響しません</strong>。</p>
 <ul>
 <li>XP・コイン・称号は<strong>増えません</strong>。</li>
-<li>ランキングにも<strong>載りません</strong>。</li>
+<li>ランキングにも<strong>載りません</strong>。学習の記録そのものは残りますが、ランキングなどの一覧からは除外されます。</li>
 <li>チュートリアルやペット作成もスキップされます。</li>
 </ul>
 <div class="callout ok">つまり、<strong>いくら触っても生徒側のデータやランキングを汚さない</strong>ので、教材確認のために自由に問題を解いて構いません。</div>
@@ -98,7 +100,10 @@ th{background:var(--accent2);color:#0b5a94;font-weight:700}
 <h2><span class="num">4</span>生徒の進捗を見る</h2>
 <p>担当生徒の学習状況は <strong>edenteacher 側</strong>で確認します（EdenQuest のアカウントは不要です）。</p>
 <ul>
-<li>edenteacher の<strong>生徒詳細ページに EdenQuest カード</strong>があり、直近7日の学習状況が表示されます。</li>
+<li>edenteacher の<strong>生徒詳細ページの、左のタブ「学習の記録」</strong>で見られます。</li>
+<li>直近7日の<strong>学習した日数・学習回数・学習時間・最後に学習した日時</strong>が出ます。</li>
+<li>教科別・レッスン別に、クリアやテストの回数と最高点、動画、復習まで見えます。</li>
+<li>保護者のアカウントがまだ紐付いていないときなど、記録を出せない場合は、その理由が画面に出ます。</li>
 <li>授業の冒頭で「今週 EdenQuest やった？」の答え合わせに使えます。<strong>やっていない週が続く生徒は声かけ・保護者への共有を</strong>。</li>
 </ul>
 </div>
@@ -107,8 +112,9 @@ th{background:var(--accent2);color:#0b5a94;font-weight:700}
 <h2><span class="num">5</span>答えの表示（先生専用機能）</h2>
 <ul>
 <li>EdenQuest の<strong>設定画面</strong>に、先生アカウントだけに表示される「<strong>先生用: ボス問題の答え表示</strong>」トグルがあります（初期状態は OFF）。</li>
-<li>ON にすると問題画面で正解を確認できます。授業中に生徒と同じ問題を見ながら解説するときに使ってください。</li>
-<li>生徒のアカウントにはこの機能はなく、正解が送られることもありません。</li>
+<li>ON にすると、確認テスト・ボスチャレンジの問題画面に、正解が出ます。授業中に生徒と同じ問題を見ながら解説するときに使ってください。</li>
+<li>設定画面には、先生・管理者だけに「<strong>トロッコ問題一覧（正解つき）を開く</strong>」もあります。</li>
+<li>生徒のアカウントにはこの機能はなく、正解が送られることもありません。<strong>正解つきの画面を、生徒・保護者に渡さないでください。</strong></li>
 </ul>
 </div>
 
@@ -117,12 +123,16 @@ th{background:var(--accent2);color:#0b5a94;font-weight:700}
 <table>
 <tr><th>機能</th><th>内容</th></tr>
 <tr><td><strong>冒険マップ</strong></td><td>単元別の演習（ボス問題）。算数・国語・理科・社会を単元ごとに攻略していくメインコンテンツ。</td></tr>
-<tr><td><strong>デイリーミッション</strong></td><td>毎日の課題。習慣化の柱なので「毎日デイリーだけはやる」を最低ラインの指示にしやすい。</td></tr>
-<tr><td><strong>デイリージオ</strong></td><td>日本地図に場所をピンで刺して距離で採点される地理チャレンジ（1日10問）。社会の地理感覚づくりに。</td></tr>
-<tr><td><strong>復習ノート</strong></td><td>間違えた問題の復習用カード。</td></tr>
+<tr><td><strong>レッスンの確認テスト</strong></td><td>レッスンの最後のテスト。合格するとクリアになります。結果のあとに、解説を全画面で見直せます。並び替えの問題もあります。</td></tr>
+<tr><td><strong>ミッション</strong></td><td>毎日の課題。習慣化の柱なので「毎日ミッションだけはやる」を最低ラインの指示にしやすい。</td></tr>
+<tr><td><strong>デイリージオ</strong></td><td>地図に場所をピンで刺して、距離で採点される地理チャレンジ。「日本」と「世界」の2種類があります。世界は、日本を通算10日完走すると解禁されます（11/1 公開）。社会の地理感覚づくりに。</td></tr>
+<tr><td><strong>トロッコチャレンジ</strong></td><td>全教科の2択ランです。ステージ制で、横向きで遊びます。学年別のランキングがあります（9/19 から生徒に公開）。先生は、設定画面の「トロッコ問題一覧（正解つき）」で問題を見られます。</td></tr>
+<tr><td><strong>復習ノート・走馬灯</strong></td><td>間違えた問題の復習用カード。「走馬灯」は、復習ノートをまとめて復習する機能です。</td></tr>
+<tr><td><strong>バトル</strong></td><td>ホームの「バトル」は、デイリーラン・ジオ・トロッコのランキングの入口です。保護者がランキングを隠す設定もあります。</td></tr>
 <tr><td><strong>ライブ</strong></td><td>過去問演習ライブなど、リアルタイム授業への入口。開催の案内があったら生徒をここから参加させます（開催・運営は運営側が行います）。</td></tr>
-<tr><td><strong>ペット・おみくじ・マイルーム</strong></td><td>コインで回すおみくじで装飾品を集め、ペットの着せ替えをする、モチベーション側の機能。</td></tr>
+<tr><td><strong>ペット・願いの泉・マイルーム</strong></td><td>コインで回す「願いの泉」で装飾品を集め、ペットの着せ替えをする、モチベーション側の機能。</td></tr>
 <tr><td><strong>称号・ランキング</strong></td><td>学習量に応じたごほうび。競争が効くタイプの生徒に有効。</td></tr>
+<tr><td><strong>先生からのクエスト・今日の限定クエスト</strong></td><td>生徒のホームに「先生からのクエスト」が出ることがあります。<strong>先生の画面からは出せません。</strong>出したいときは運営に頼んでください。完了の条件は、出したあとに確認テストに合格することです（動画のあるレッスンは視聴も必要）。</td></tr>
 </table>
 <div class="callout info">機能は随時追加されています。先生アカウントで実際に触って把握しておくのが一番早いです。</div>
 </div>
@@ -131,7 +141,7 @@ th{background:var(--accent2);color:#0b5a94;font-weight:700}
 <h2><span class="num">7</span>授業での活用</h2>
 <ul>
 <li><strong>宿題として単元を指示する</strong> — 授業で扱った単元を「冒険マップの◯◯をクリアしておいで」と指示する使い方が基本です。指示の出し方・レベル感は指導ガイドの「<strong>Eden の指導メソッド</strong>」を参照してください。</li>
-<li><strong>授業冒頭のチェック</strong> — edenteacher の EdenQuest カードで1週間の取り組みを確認 → 一言フィードバック。見てもらえていると分かると継続率が上がります。</li>
+<li><strong>授業冒頭のチェック</strong> — edenteacher の生徒詳細の「学習の記録」で1週間の取り組みを確認 → 一言フィードバック。見てもらえていると分かると継続率が上がります。</li>
 <li><strong>報告書に書く</strong> — EdenQuest の取り組み状況は保護者の関心が高いので、授業報告書で触れると喜ばれます。</li>
 </ul>
 </div>
@@ -141,7 +151,8 @@ th{background:var(--accent2);color:#0b5a94;font-weight:700}
 <ul>
 <li>先生アカウントで生徒のアカウントにログインしない・パスワードを預からないこと。ログインで困っている家庭は管理者へ。</li>
 <li>生徒データがおかしい・アプリの不具合を見つけた場合は管理者に報告してください。</li>
-<li>答え表示トグルは授業用の機能です。<strong>正解の一覧やスクリーンショットを生徒・保護者に配らない</strong>でください（演習の意味がなくなります）。</li>
+<li>答え表示トグルと、トロッコの正解つき一覧は授業用の機能です。<strong>正解の一覧やスクリーンショットを生徒・保護者に配らない</strong>でください（演習の意味がなくなります）。</li>
+<li><strong>「家庭が EdenQuest に入れない」と言われたとき</strong>は、利用停止になっていることがあります。契約が終わった家庭と、edenteacher で保護者の紐付けが無いまま登録から14日を過ぎた家庭は、EdenQuest に入れなくなります（先生・管理者は対象外）。心当たりがあれば管理者に伝えてください。</li>
 </ul>
 </div>
 
