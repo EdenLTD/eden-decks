@@ -547,7 +547,7 @@
       <p class="text-lg md:text-xl font-extrabold text-red-700 leading-relaxed">
         このプランは <span class="bg-red-600 text-white px-2 py-0.5 rounded mx-1">本日のお申し込み限り</span> です。
       </p>
-      <p class="text-sm text-red-900 mt-2 font-bold leading-7"><span data-deadline-label>ご面談当日 23:59</span> を過ぎてからのお申し込みは、<span class="underline decoration-2 decoration-red-500">通常の12回コース（コンテンツ・EdenQuest なし）</span>でのご案内となります。</p>
+      <p class="text-sm text-red-900 mt-2 font-bold leading-7">明日以降のお申し込みは、<span class="underline decoration-2 decoration-red-500">通常の12回コース（コンテンツ・EdenQuest なし）</span>でのご案内となります。</p>
     </div>
   </div>
 </section>
@@ -591,22 +591,6 @@
     <p class="text-xs text-slate-400 tracking-widest">© 2026 株式会社Eden / 超直前 逆転合格 12回フルプラン</p>
   </div>
 </footer>
-
-<script>
-/* ?until=YYYY-MM-DD を付けると、注意書きの「ご面談当日 23:59」をその日付に差し替える（例: ?until=2026-11-07） */
-(function () {
-  var DOW = ['日', '月', '火', '水', '木', '金', '土'];
-  var raw = '';
-  try { raw = new URLSearchParams(window.location.search).get('until') || ''; } catch (e) { return; }
-  var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(raw);
-  if (!m) return;
-  var y = +m[1], mo = +m[2], d = +m[3];
-  var day = new Date(Date.UTC(y, mo - 1, d));
-  if (day.getUTCFullYear() !== y || day.getUTCMonth() !== mo - 1 || day.getUTCDate() !== d) return;
-  var label = y + '年' + mo + '月' + d + '日（' + DOW[day.getUTCDay()] + '）23:59';
-  Array.prototype.forEach.call(document.querySelectorAll('[data-deadline-label]'), function (el) { el.textContent = label; });
-})();
-</script>
 
 </body>
 </html>
